@@ -1,0 +1,52 @@
+/* pages/index/apply/index.wxss */
+.topImg image{
+    width: 100%;
+}
+.contentBox{
+  margin-top: 28rpx;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+}
+.contentBox image{
+  width: 38rpx;
+  height: 38rpx;
+}
+.contentBox .title{
+  height: 75rpx;
+  line-height: 75rpx;
+}
+.content{
+  display: flex;
+  justify-content: space-between;
+   background-color: #eeeeee;
+   height: 70rpx;
+
+padding-left: 26rpx;
+}
+.content image{
+  vertical-align: middle;
+  margin-right: 40rpx;
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+.content textarea{
+
+  align-items: center;
+}
+.tex_con textarea{
+  padding-top: 34rpx;
+  height: 140rpx;
+}
+.tex_con{
+  background-color: #eeeeee;
+  padding-left:26rpx;
+}
+.zhushi{
+color: #999999;
+margin-top: 10rpx;
+}
+.zhushi text{
+  color: #01c12d;
+}

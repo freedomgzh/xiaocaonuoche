@@ -1,0 +1,77 @@
+<!--pages/my/index.wxml-->
+<!--index.wxml-->
+<view class="container">
+<view class='topImg'>
+    <image mode='widthFix' src='/images/mine_bg.png'></image>
+</view>
+  <view class="userinfo main-bgcolor">
+    <image class="userinfo-avatar" src='{{userInfo.avatarUrl}}' background-size="cover"></image>
+
+    <view class='userinfo-name'>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+      <view class='toJoin'>代理商申请</view>
+      <view>
+        <text class='iconfont icon-arrow-right' wx:if="{{userType==2}}"></text>
+      </view>
+    </view>
+
+  </view>
+  <!-- <import src="../../temp/temp-my/index.wxml"/>
+
+      <template is="{{userType==2? 'toC' : 'toB'}}" data="{{...myList}}"></template> -->
+  <!-- <view class="info_list">
+    <block wx:for="{{sellerlist}}" wx:key="{{index}}">
+      <navigator url="{{item.url}}" wx:if="{{index!=2}}">
+        <view class="weui_cell">
+          <view class="weui_cell_hd">
+            <text class='iconfont {{item.iconName}}'></text>
+
+          </view>
+          <view class="weui_cell_bd">
+            <view class="weui_cell_bd_p"> {{item.text}}</view>
+          </view>
+
+          <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
+          <view class="with_arrow"></view>
+        </view>
+      </navigator>
+      <view wx:else>
+         <view class='kefu'>
+
+        <button open-type='contact' style='background:transparent;text-align:left;font-size:32rpx;padding:15px;'>
+                     <view style='display:flex;  align-items: center;'><view class='zixun'><text class='iconfont icon-kefu2'></text> </view> 咨询客服
+</view>
+        </button>
+      </view>
+      </view>
+      <view class='moneyBox' wx:if="{{item.text=='钱包'}}">
+
+        <view class='showMoney' wx:if="{{item.text=='钱包'}}" bindtap='goYue'>
+          <text class="show">￥{{yue==null?0:yue}}</text>
+          <view class='name'>
+            <text class='iconfont icon-z-balance'></text>
+            <text class="">余额</text>
+          </view>
+
+        </view>
+        <view class='showMoney' wx:if="{{item.text=='钱包'}}" bindtap='goQb'>
+          <text class='show'>￥{{quanzong==null?0:quanzong}}</text>
+          <view class='name'>
+            <text class='iconfont icon-youhuiquan'></text>
+            <text class=''>现金券</text>
+          </view>
+
+        </view>
+
+      </view>
+    </block>
+
+  </view> -->
+
+</view>
+<!-- <view class='support'>
+  <navigator target="miniProgram" open-type="navigate" path="" extra-data="" app-id="wxf48cdd6a7dae8c21">
+  <image src='http://wsc.jicaizx.com/images/jclogo.png'></image>
+
+</navigator>
+吉采网络技术支持</view>  -->

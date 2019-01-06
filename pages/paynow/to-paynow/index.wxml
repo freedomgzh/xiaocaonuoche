@@ -1,0 +1,30 @@
+<!--pages/paynow/paynow/index.wxml-->
+<view class='container'>
+	<view class='pay-img'>
+		<canvas canvas-id='erweima'></canvas>
+	</view>
+	<view class='pay-reminder'>
+		<view class=''>
+			<text class='red underline' bindtap='drawImg'>保存</text><text>此二维码使用PayNow支付 \n或PayNow支付到：<text class='underline' >201412166E</text></text><text class='red underline' bindtap='copyTxt' data-value="201412166E">复制</text>
+		</view>
+		<view class='pay-num'>请在支付时备注订单号：<text class='red underline'> {{orderSn}}</text><text class='red underline' bindtap='copyTxt' data-value="{{orderSn}}">复制</text></view>
+    <view class='back' bindtap='comeback'>返回上一层切换微信支付</view>
+	</view>
+  
+	<view>
+	<!-- <form bindsubmit='changeStauts'>
+		<button class='ui-button' form-type='submit' disabled='{{isbtnclick}}'>确定</button>
+	</form> -->
+		<view class= 'btnBox' >
+    <!-- <text bindtap='backpay' class='red underline'>返回</text> -->
+        <!-- <text bindtap='changePay' class='red underline'>换种支付方式</text>
+        </view> -->
+          <!-- <view bindtap='changePay' class=' changePay'>换种支付方式</view> -->
+		<view class='confirm' bindtap='confirm'> 确定</view>
+
+  
+    
+    </view>
+	</view>
+
+</view>

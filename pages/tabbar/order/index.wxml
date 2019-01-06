@@ -1,0 +1,91 @@
+<!-- <view class='doing-title' wx:if="{{orderList.length>0 && shopcartData.length>0}}">
+	<text>进行中的订单</text>
+</view> --><view class='view-history'>
+  <!-- <view bindtap='goHistoryList' class='view-history-text' hover-class='view-history-hover'>查看历史订单</view> -->
+</view>
+<view class='layout-doing' wx:for="{{orderList}}" wx:key="{{index}}">
+  <view class='view-card' >
+    <!-- <text class='doing-order-title'>{{item.orderStatusDesc}}</text> -->
+    <text  class='doing-order-title' wx:if='{{item.start_time * 1000-newDate >0}}'>拼团进行中（等待物品到库）</text>
+      <text  class='doing-order-title' wx:if='{{item.start_time * 1000-newDate <0 &&item.end_time * 1000>newDate}}'>拼团进行中（等待物品到货）</text>
+              <text  class='doing-order-title' wx:elif="{{item.start_time * 1000<newDate &&item.end_time * 1000<newDate}}">已成团（等待物品到货）</text>
+              <!-- <text wx:elif="{{item.end_time * 1000 < newDate&& newDate < item.end_time * 1000}}">已成团</text> -->
+              <text class='doing-order-title' wx:elif="{{item.end_time * 1000 < newDate&& newDate < item.arrival_time * 1000}}">已完成</text>
+
+    <block >
+      <view class='doing-process' data-status="{{item.order_status}}">
+        <view class='{{item.orderStatus==1?"active":""}}'>
+          <text>物品到库</text>
+          <!-- <text wx:if="{{item.orderTimeHHmm}}">{{item.orderTimeHHmm}}</text>
+          <text wx:else>-</text> -->
+        </view>
+        <view class='border {{item.orderStatus>=2?"active":""}}'></view>
+        <view class='{{item.orderStatus>=2?"active":""}}'>
+          <text>物品到港</text>
+          <!-- <text wx:if="{{item.orderAcceptTime}}">{{item.orderAcceptTime}}</text>
+          <text wx:else>-</text> -->
+        </view>
+        <view class='border {{item.orderStatus==3?"active":""}}'></view>
+        <view class='{{item.orderStatus==3?"active":""}}'>
+          <text>派送成功</text>
+          <!-- <text wx:if="{{item.orderPickedUpTime}}">{{item.orderPickedUpTime}}</text>
+          <text wx:else>-</text> -->
+        </view>
+      </view>
+      <!-- <view class="doing-process-time">预计送达时间：{{item.deliveryTime}}</view> -->
+    </block>
+    <view class='doing-order-btn'>
+      <navigator url='/pages/order/finish-details/index?orderId={{item.order_id}}&type={{item.type}}&end_time={{item.end_time}}&arrival_time={{item.arrival_time}}'>
+        <button>订单详情</button>
+      </navigator>
+      <button bindtap='orderComment' id="{{item.orderTransactionId}}" class='btn-comment' hover-class='ui-button-hover' wx:if="{{item.orderStatus==9}}">评价</button>
+    </view>
+    <view class="view-field view-divide">
+      <text class='pay-type'>配送地址</text>
+      <text class='view-field-text'>收货人姓名：{{item.consignee}}\t 电话：{{item.mobile}}\n 详细地址：{{item.address}}</text>
+    </view>
+    <view class='view-field view-divide'>
+      <text class="pay-type  ">订单号码</text>
+      <text>{{item.order_sn}}</text>
+			<text class="main-color {{item.order_amount?'ky':'hk'}} " wx:if="{{item.order_status==0}}" bindtap="{{item.order_amount?'toPay':''}}"  data-paytype='{{item.paytype}}' data-id='{{item.order_id}}' data-sn="{{item.order_sn}}"> (未支付)</text>
+      			<text class="main-color" wx:elif="{{item.order_status==1}}"> (已付款)</text>
+            			<text class="main-color" wx:elif="{{item.order_status==0}}"> (已确认)</text>
+                  			<text class="main-color" wx:elif="{{item.order_status==0}}"> (已取消)</text>
+
+
+
+    </view>
+    <view class='view-field view-divide'>
+      <text class='pay-type'>下单时间</text>
+      <text>{{item.add_time}}</text>
+    </view>
+  </view>
+  <!-- <view class='layout-restaurant' wx:else>
+    <view class='view-card'>
+      <view class='doing-order-title'>
+        订座-{{item.restaurantName}}
+      </view>
+      <view class='doing-order-btn'>
+          <button bindtap='toOrderDetail' data-reservationId='{{item.id}}'>订座详情</button>
+        <button open-type='share' data-reservationId='{{item.id}}'  class='btn-comment' hover-class='ui-button-hover'>分享</button>
+      </view>
+      <view class="view-field view-divide">
+        <text class='pay-type'>饭店信息</text>
+        <text class='view-field-text'>{{item.dinnerTime}}</text>
+        <text class="right" wx:if="{{item.status==1}}">等待店家确认</text>
+        <text class="right" wx:if="{{item.status==2}}">预定成功</text>
+        <text class="right" wx:if="{{item.status==3}}">预定失败</text>
+      </view>
+      <view class='view-field view-divide'>
+        <text class='pay-type'>预约时间</text>
+        <text class='view-field-text'>{{item.dinnerTime}}</text>
+      </view>
+    </view>
+  </view> -->
+</view>
+
+<view class="common-shopcart" wx:if="{{isShopcartData}}" bindtap="goShopcart">
+	<image src='/images/icon-shopcar.png'></image>
+</view>
+
+<!-- <view  bindtap="" >测试付款</view> -->

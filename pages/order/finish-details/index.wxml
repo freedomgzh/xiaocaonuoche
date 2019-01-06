@@ -1,0 +1,130 @@
+<!--pages/finish-details/index.wxml-->
+<view class='container'>
+  <view class='title'>
+    <view class='titleTime'>预计到港口时间：2018年11月25日</view>
+    <view class='countTime'>
+      <view class='box-t'>
+        <view class='border-left '>
+          <text></text>
+        </view>
+
+        <view>本场倒计时</view>
+
+        <text class='time'>{{thistime.days}}</text>
+        <text>:</text>
+        <text class='time'>{{thistime.hours}}</text>
+        <text>:</text>
+        <text class='time'>{{thistime.minutes}}</text>
+        <text>:</text>
+        <text class="sec">{{thistime.seconds}}</text>
+        <view class='border-right'>
+          <text></text>
+        </view>
+
+      </view>
+    </view>
+    <!-- <view class='border'>
+          <view></view>
+        </view> -->
+  </view>
+  <view class='content'>
+    <view class='content-title' hidden='{{show}}'>
+      <text class='' bindtap='showDetails'> 物品信息</text>
+      <text class='iconfont icon-xiala' bindtap='showDetails'></text>
+    </view>
+    <view class='content-title ' hidden='{{!show}}'>
+      <text class='title-details'> 物品信息</text>
+    </view>
+    <view class='orderDetails' hidden='{{!show}}'>
+
+      <view class='type'>
+        <text>货品类型  ： </text>
+        <view>{{orderinfo.goods_type=='0'?"普通货":"敏感货"}}</view>
+      </view>
+      <view class='type'>
+        <text>货品种类  ： </text>
+        <view>{{orderinfo.goods_kind}}</view>
+      </view>
+      <view class='type'>
+        <text>货品价值 ：S$</text>
+        <view>{{orderinfo.order_amount}}</view>
+      </view>
+      <view class='type num'>
+        <text>货品数量 ：</text>
+        <text>{{orderinfo.goods_num}}件</text>
+
+      </view>
+      <view class='type'>
+        <text>收货人姓名 ：</text>
+        <view>{{orderinfo.consignee}}</view>
+      </view>
+      <view class='type'>
+        <text>收货人电话 ：</text>
+        <view>{{orderinfo.mobile}}</view>
+      </view>
+      <view class='type address'>
+        <text>收货地址 ：</text>
+        <view class='addressline'>
+          {{orderinfo.address}}
+          <text class='cp' bindtap='copy' data-value="{{orderinfo.address}}">复制</text>
+        </view>
+      </view>
+      <view class='hidden' bindtap='showDetails'>
+        <text class='iconfont icon-shangla'></text> </view>
+    </view>
+
+    <view class='transfer'>
+      <view class='transfer-title'>
+        <text>转运收货地址</text>
+      </view>
+    </view>
+    <view hidden='{{show}}'>
+      <view class='border'>
+        {{transferDetails.city}}转运收货地址
+      </view>
+      <view class='addressBox'>
+        <text>地址信息</text>
+        <text>{{transferDetails.city}}</text>
+        <view class='copy' bindtap='copy' data-value="{{transferDetails.city}}">copy</view>
+      </view>
+      <view class='addressBox'>
+        <text>详细地址</text>
+        <text class='linage'>{{transferDetails.address}}</text>
+        <view class='copy' bindtap='copy' data-value="{{transferDetails.address}}">copy</view>
+      </view>
+      <view class='addressBox'>
+        <text>邮政编码</text>
+        <text>{{transferDetails.postal_code}}</text>
+        <view class='copy' bindtap='copy' data-value="{{transferDetails.postal_code}}">copy</view>
+      </view>
+      <view class='addressBox'>
+        <text>收件人姓名</text>
+        <text>{{transferDetails.consignee}}</text>
+        <view class='copy' bindtap='copy' data-value="{{transferDetails.consignee}}">copy</view>
+      </view>
+      <view class='addressBox'>
+        <text>手机号码</text>
+        <text>{{transferDetails.mobile}}</text>
+        <view class='copy' bindtap='copy' data-value="{{transferDetails.mobile}}">copy</view>
+      </view>
+      <view class='hidden' bindtap='showDetails'>
+        <text class='iconfont icon-shangla'></text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='person'>
+    <view class='num-details'> 还差
+      <text class='lack'>2</text>人本次运费可享
+    </view>
+    <view class='salse'>9.5折</view>
+
+    <view class='share'>
+      <button open-type='share' class='btn iconfont icon-fenxiang3' plain style="color: #fff; border:none">分享</button>
+
+      <!-- <text class='iconfont icon-fenxiang3 icon'></text> 帮助分享 -->
+
+    </view>
+  </view>
+</view>

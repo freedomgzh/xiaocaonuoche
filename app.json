@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/tabbar/index/index",
+    "pages/tabbar/order/index",
+    "pages/tabbar/my/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/index/",
+      "pages": [
+        "exp/index",
+        "apply/index"
+      ]
+    },
+    {
+      "root": "pages/order/",
+      "pages": [
+        "finish-details/index"
+      ]
+    },
+    {
+      "root": "pages/paynow/",
+      "pages": [
+        "to-paynow/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "#333",
+    "navigationBarTitleText": "小草挪车",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F2f2f2",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#58BD9C",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/index/index",
+        "iconPath": "images/footer-icon-03.png",
+        "selectedIconPath": "images/footer-icon-03-active.png",
+        "text": "扫码挪车"
+      },
+      {
+        "pagePath": "pages/tabbar/my/index",
+        "iconPath": "images/footer-icon-04.png",
+        "selectedIconPath": "images/footer-icon-04-active.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}
