@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -48,7 +48,13 @@
 				{
 					"id": -1,
 					"name": "wode ",
-					"pathName": "pages/tabbar/my/index"
+					"pathName": "pages/tabbar/my/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/tabbar/order/index"
 				}
 			]
 		}

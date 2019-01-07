@@ -1,6 +1,8 @@
 /* pages/order/index.wxss */
 /* 购物车结算 */
-
+page{
+  background-color: #f8f8f8;
+}
 .layout-address {
   background-color: #ef2612;
 }
@@ -13,7 +15,7 @@
 }
 
 .view-divide {
-  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .text-field {
@@ -49,8 +51,9 @@
 }
 
 .layout-doing .view-card {
-  margin: 10rpx 20rpx;
+  margin: 10rpx 30rpx;
   position: relative;
+  border-radius: 15rpx;
 }
 
 .view-dish {
@@ -116,225 +119,18 @@
   color: #aaa;
   font-size: 30rpx;
 }
-
-.dish-remarks {
-  max-width: 60vw;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-  color: #aaa;
-  font-size: 30rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.times{
+  color: #333;
 }
-
-.btn-order {
-  margin: 30rpx 20rpx;
-  color: white;
-  border-radius: 4px;
-  background-color: #ef2612;
-  box-shadow: 0px 1px 5px rgba(239, 38, 18, 0.5);
-}
-
-.btn-hover {
-  background-color: #c01708;
-  box-shadow: none;
-}
-
-.view-field-text {
-  display: inline-block;
-  vertical-align: top;
-}
-
-/* 进行中的订单 */
-
-.layout-doing {
-  padding-top: 10rpx;
-}
-
-.doing-title {
-  margin: 0 20rpx 15rpx;
-  text-align: center;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjMwMURBRTI1OTE1QTExRThBRDhEQUM0RENBRDlDNTlGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjMwMURBRTI2OTE1QTExRThBRDhEQUM0RENBRDlDNTlGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzAxREFFMjM5MTVBMTFFOEFEOERBQzREQ0FEOUM1OUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzAxREFFMjQ5MTVBMTFFOEFEOERBQzREQ0FEOUM1OUYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5u+jj/AAAABlBMVEW7u7sAAAB4DqrnAAAADElEQVR42mJgAAgwAAACAAFPbVnhAAAAAElFTkSuQmCC);
-  background-repeat: repeat-x;
-  background-position: center;
-}
-
-.doing-title text {
-  height: 50rpx;
-  line-height: 50rpx;
-  color: #ababab;
-  font-size: 30rpx;
-  padding: 0 10rpx;
-  background-color: #f0f0f0;
-}
-
-.doing-order-title {
-  width: 100%;
-  display: block;
-  text-align: center;
-  padding: 35rpx 0 10rpx;
-  font-size: 40rpx;
-  font-weight: bold;
-}
-
-.doing-order-title text {
-  color: #f0bd49;
-  position: absolute;
-  right: 10rpx;
-  font-size: 28rpx;
-}
-
-.doing-process {
+.payBox{
+  height: 90rpx;
+  line-height: 90rpx;
   display: flex;
   align-items: center;
-  padding: 10rpx 30rpx;
-  font-size: 32rpx;
+  flex-direction:row-reverse;
 }
 
-.doing-process view {
-  flex: 1;
-  text-align: center;
-}
-
-.doing-process view text {
-  display: inline-block;
-  width: 80rpx;
-  text-align: center;
-}
-
-.doing-process view text:last-child {
-  font-size: 30rpx;
-  /* display: block; */
-}
-
-.doing-process view.active {
-  color: #f0bd49;
-}
-
-.doing-process .border {
-  border-top: 1px dotted #666;
-  margin-right: 20rpx;
-}
-
-.doing-process .border.active {
-  border-top: 1px dotted #f0bd49;
-}
-
-.doing-order-btn {
-  padding: 30rpx;
-  text-align: center;
-}
-
-.doing-order-btn navigator {
-  display: inline;
-}
-
-.doing-order-btn button {
-  height: 70rpx;
-  font-size: 30rpx;
-  line-height: 70rpx;
-  padding: 0rpx 70rpx;
-  display: inline-block;
-}
-
-.doing-order-btn  button {
-  background-color: white;
-  border: 1px solid #ef2612;
-}
-
-.doing-order-btn .btn-comment {
-  color: white;
-  margin-left: 20rpx;
-	padding: 0rpx 100rpx;
-  background-color: #ef2612;
-}
-
-.address-info {
-  font-size: 35rpx;
-  font-weight: bold;
-}
-
-.address-info + view {
-  font-size: 28rpx;
-  color: #aaa;
-}
-
-.doing-process-time {
-  font-size: 28rpx;
-  text-align: center;
-  padding-top: 10rpx;
-}
-
-.view-coupon {
-  background-color: #f0f0f0;
-  padding: 10rpx 20rpx;
-  display: flex;
-  justify-content: space-between;
-}
-
-/*订座  */
-
-.layout-restaurant .doing-order-title {
-  border-bottom: 0px solid;
-}
-
-.reservation-btn {
-  text-align: center;
-  padding: 30rpx 0;
-}
-
-.reservation-btn button {
-  height: 70rpx;
-  line-height: 70rpx;
-  padding: 0rpx 70rpx;
-  background: #fff;
-  border-radius: 5px;
-  border: 1px solid #ef2612;
-  display: inline-block;
-  margin: 0 10rpx;
-}
-
-.layout-restaurant .right {
-  position: absolute;
-  right: 20rpx;
-  font-size: 28rpx;
-  color: #ef2612;
-}
-
-.common-shopcart {
-	width: 50rpx;
-	height: 50rpx;
-	position: fixed;
-	bottom: 40rpx;
-	right: 20rpx;
-	padding: 20rpx;
-	background-color: white;
-	border-radius: 30px;
-	box-shadow: 1px 1px 3px rgba(10, 10, 10, .3)
-}
-
-.common-shopcart image {
-	width: 100%;
-	height: 100%;
-}
-
-.common-shopcart::before {
-	right: 18rpx;
-	top: 20rpx;
-	content: " ";
-	position: absolute;
-	width: 15rpx;
-	height: 15rpx;
-	border-radius: 30px;
-	background-color: #ef2612;
-}
-.hk{
-    color: #ababab;
-
-}
-.ky{
-  color: #ef2612;
-
-
+.payBtn{
+  height: 52rpx;
+  line-height: 52rpx;
 }
