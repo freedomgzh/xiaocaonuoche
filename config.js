@@ -20,8 +20,9 @@ const config = {
   // 订单详情
   orderinfo: `${host}/orderinfo`,
   //地址详情
-  address: `${host}/dizhi`
-
+  address: `${host}/dizhi`,
+  //生成二维码
+getQRCode: `${host}/getQRCode`
 };
 
 module.exports = config

@@ -1,7 +1,7 @@
 <!--pages/index/apply/index.wxml-->
 <view class='container'>
     <view class='topImg'>
-        <image mode='widthFix' src='/images/bg_apply.png'></image>
+        <image mode='widthFix' src='https://xiaocaonuoche.com/upload/bg_apply.png'></image>
     </view>
       <view class='contentBox'>
             <view class='title'>您将收到</view>
@@ -11,14 +11,17 @@
                   <label>二维码挪车码*2</label>
             </view>
             <view class='right'>
-                  111
+            <text class='iconfont icon-jia' bindtap='increase'></text>
+                  <view class='num'>{{num}}</view>
+              <text class='iconfont icon-jian1' bindtap='reduce'></text>
+
             </view> 
             </view>
               <view class='title'>收货人姓名</view>
             <view class='content'>
             <view class='left'>
                 <image src="/images/mine.png"></image>
-                  <input placeholder='请输入收货人信息' placeholder-style=''></input>
+                  <input placeholder='请输入收货人信息' placeholder-style='' bindinput='nameInput'></input>
             </view>
     
             </view>
@@ -26,15 +29,20 @@
             <view class='content'>
             <view class='left'>
                 <image src="/images/phone.png"></image>
-                  <input placeholder='请输入手机号码' placeholder-style=''></input>
+                  <input placeholder='请输入手机号码' placeholder-style='' bindinput='phoneInput' type='num'></input>
             </view>
             </view>
                       <view class='title'>详细地址</view>
                       <view class="tex_con">
 
-                      <textarea placeholder='请输入详细地址'></textarea>
+                      <textarea placeholder='请输入详细地址' bindinput='addressInput'></textarea>
                   </view>
                   <view class='zhushi'>注: 收到挪车码后请您先扫码进行绑定车辆和手机信息，绑定后方可使用。如有疑问请查看  <text bindtap='toHelp'>使用帮助</text></view>
         
+      </view>
+
+      <view class='controller'>
+        <view class='price'>应付金额：<text style='color:#01c12d'> {{price}}</text></view>
+        <view class='buy' bindtap='toBuy'>立刻申请</view>
       </view>
 </view>

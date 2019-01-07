@@ -9,55 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // orderList: [{
-    //     orderStatusDesc: "等待成团",
-    //     orderTransactionId: 1,
-    //     orderStatus: 2,
-    //     deliveryAddress: "山东青岛",
-    //     orderAcceptTime: "10:11:15",
-    //     // deliveryTime:"10:11:15",
-    //     consignee: "王 (先生)",
-    //     mobile: "1111545454",
-    //     deliveryAddress: "山东省青岛市黄岛区光谷软件园",
-    //     orderSn: 8125,
-    //     orderTime: "2018-10-11  10:45",
-    //     orderTimeHHmm: "08:13:45",
-    //     deliveryTime: "2018-10-20  10:45"
-    //   }, {
-    //     orderStatusDesc: "已发货",
-    //     orderTransactionId: 1,
-    //     orderStatus: 4,
-    //     deliveryAddress: "山东青岛",
-    //     orderAcceptTime: "10:11:15",
-    //     deliveryTime: "2018-10-20  10:45",
-    //     orderPickedUpTime: "11:20:30",
-
-    //     consignee: "王 (先生)",
-    //     mobile: "1111545454",
-    //     deliveryAddress: "山东省青岛市黄岛区光谷软件园",
-    //     orderSn: 5041,
-    //     orderTime: "2018:10:11:45",
-    //     orderTimeHHmm: "08:13:45"
-    //   },
-    //   {
-    //     orderStatusDesc: "正在配送",
-    //     orderTransactionId: 1,
-    //     orderStatus: 5,
-    //     deliveryAddress: "山东青岛",
-    //     orderAcceptTime: "10:11:15",
-    //     deliveryTime: "2018-10-20  10:45",
-    //     orderPickedUpTime: "11:20:30",
-
-    //     consignee: "王 (先生)",
-    //     mobile: "1111545454",
-    //     deliveryAddress: "山东省青岛市黄岛区光谷软件园",
-    //     orderSn: 8745,
-    //     orderTime: "2018:10:11:45",
-    //     orderTimeHHmm: "08:13:45"
-    //   },
-
-
-    // ],
     payTypes: {
       WECHAT_PAY: "微信支付",
       CASH_PAY: "货到付款",
@@ -138,6 +89,7 @@ Page({
     this.setData({
       newDate: newDate
     })
+    this.getOrderList()
   },
 
   /**

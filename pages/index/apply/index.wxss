@@ -20,7 +20,7 @@
   justify-content: space-between;
    background-color: #eeeeee;
    height: 70rpx;
-
+align-items: center;
 padding-left: 26rpx;
 }
 .content image{
@@ -49,4 +49,51 @@ margin-top: 10rpx;
 }
 .zhushi text{
   color: #01c12d;
+}
+.right{
+position: relative;
+
+}
+.num{
+  background: #fff;
+  width: 150rpx;
+  text-align: center;
+  margin-right: 35rpx;
+  height: 50rpx;
+}
+.icon-jian1{
+  position: absolute;
+  left: -25rpx;
+  top: 0;
+  font-size: 50rpx;
+    color: #c8c8c8
+
+}
+.icon-jia{
+  position: absolute;
+  top:0;
+  right: 25rpx;
+  font-size: 50rpx;
+    color: #c8c8c8
+
+}
+.controller{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+width: 100%;
+height: 86rpx;
+line-height: 86rpx;
+font-size: 30rpx;
+}
+.price{
+  flex: 1;
+  text-align: center;
+  background-color: #fff;
+}
+.buy{
+  flex: 1;
+  text-align: center;
+  background-color: #01c12d;
+  color: #fff;
 }

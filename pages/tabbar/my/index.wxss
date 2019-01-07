@@ -5,7 +5,7 @@ page {
 }
 
 .container {
-  background-color: #fff;
+  background-color: #f8f8f8;
   width: 100%;
   overflow-y: scroll;
 }
@@ -17,38 +17,35 @@ page {
 /*  */
 
 
+.box{
+  padding: 0 30rpx;
+  position: relative;
+  top: -68rpx;
 
+}
 .userinfo {
-  display: flex;
   align-items: center;
   background: #fff;
-  position: absolute;
-  top: 150rpx;
-  left: 5%;
-  width: 90%;
-  height: 236rpx;
+    height: 238rpx;
   border-radius: 15rpx;
 }
 
 
-.userinfo-bg {
-  width: 96%;
-  height: 50%;
-  background: #fff;
-  position: absolute;
-  bottom: 0px;
-}
+
 
 
 
 
 .userinfo-name {
+  position: relative;
+  top: 104rpx;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  flex: 1;
+  height: 44rpx;
+  line-height: 44rpx;
 }
-
+                  
 
 .userinfo-avatar {
   width: 158rpx;
@@ -66,9 +63,62 @@ page {
   text-align: right;
   flex: 1;
   padding-right:10rpx;
+  font-size: 30rpx;
 }
 .toJoin{
   flex: 1;
   padding-left: 10rpx;
+  font-size: 23rpx;
 }
 
+.JoinBtn{
+width: 146rpx;
+border-radius: 5rpx;
+background: url(https://xiaocaonuoche.com/upload/jm_bg.png);
+text-align: center;
+color: #fff;
+}
+.Tips{
+  position: relative;
+  top: 135rpx;
+  font-size: 22rpx;
+  text-align: center;
+}
+.boxs{
+    padding: 0 30rpx;
+  position: relative;
+  top: -48rpx;
+  
+}
+.menu{
+border-radius: 5rpx;
+padding: 0 30rpx;
+background-color: #fff;
+
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+font-size: 28rpx;
+height: 90rpx;
+line-height: 90rpx;
+align-items: center;
+border-bottom: 1px solid#eeeeee;
+}
+.list image{
+    width: 26rpx;
+  height: 36rpx;
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+.left image{
+  margin-right: 28rpx;
+}
+.oMenu{
+  border-radius: 5rpx;
+padding: 0 30rpx;
+background-color: #fff;
+margin-top: 38rpx;
+}

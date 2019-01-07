@@ -11,23 +11,45 @@ Page({
     //   nickName: app.globalData.userInfo.nickName,
     //   show:false,
     // },
-    sellerlist: [
+    menulist: [
       {
-        iconName: 'icon-qianbao',
-        text: '钱包',
-        url: "/pages/my/qianbao-c/index"
+        imgPath: '/images/order.png',
+        text: '我的订单',
+        url: "/pages/tabbar/order/index"
       },
       {
-        iconName: 'icon-gouwuche',
-        text: '购物车',
+        imgPath: '/images/quite.png',
+        text: '勿扰模式',
         url: "/pages/Shop/shop-cart/index"
       },
       {
-        iconName: 'icon-kefu',
-        text: '客服',
-        // url: "/pages/Shop/shop-cart/index"
-      }
+        imgPath: '/images/phone.png',
+        text: '管理手机号',
+        url: "/pages/Shop/shop-cart/index"
+      },
+      {
+        imgPath: '/images/address.png',
+        text: '我的地址',
+        url: "/pages/order/index"
+      },
+      {
+        imgPath: '/images/quite.png',
+        text: '二维码续费',
+        url: "/pages/Shop/shop-cart/index"
+      },
 
+    ],
+    list:[
+      {
+        imgPath: '/images/help.png',
+        text: '使用说明',
+        url: "/pages/Shop/shop-cart/index"
+      },
+      {
+        imgPath: '/images/kefu.png',
+        text: '联系客服',
+        url: "/pages/Shop/shop-cart/index"
+      },
     ]
 
 
@@ -42,28 +64,28 @@ Page({
     that.setData({
       userInfo: userInfo
     })
-    // wx.getSetting({
-    //   success: function (res) {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-    //       that.setData({
-    //         show:true
-    //       })
-    //       wx.getUserInfo({
-    //         success: function (res) {
-    //           console.log(res.userInfo)
-    //           var avatarUrl = 'userInfo.avatarUrl';
-    //           var nickName = 'userInfo.nickName';
-    //           that.setData({
-    //             [avatarUrl]: res.userInfo.avatarUrl,
-    //             [nickName]: res.userInfo.nickName,
-    //           })
-    //           console.log(that.data.userInfo)
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          that.setData({
+            show:true
+          })
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              var avatarUrl = 'userInfo.avatarUrl';
+              var nickName = 'userInfo.nickName';
+              that.setData({
+                [avatarUrl]: res.userInfo.avatarUrl,
+                [nickName]: res.userInfo.nickName,
+              })
+              console.log(that.data.userInfo)
+            }
+          })
+        }
+      }
+    })
     /**
      * 获取用户信息
      */
