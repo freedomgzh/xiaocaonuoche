@@ -10,7 +10,25 @@ Page({
    */
   data: {
 num:1,
-price:18
+  },
+  getPrice:function(){
+    wx.request({
+      url: url.jiage,
+      success:(res)=>{
+        console.log(res)
+        if(res.data.code==0){
+          this.setData({
+            price: res.data.data
+          })
+        }else{
+          wx.showToast({
+            title: '接口错误',
+            icon:"none"
+          })
+        }
+     
+      }
+    })
   },
   increase:function(){
     var num = this.data.num;
@@ -81,23 +99,25 @@ price:18
     wx.showLoading({
       title: '正在生成订单',
     })
-    wx.request({
-      url: url.getQRCode,
-      data:{
-        user_id:app.globalData.userId,
-        path:"pages/index/call",
-        mobile:phone
-      },
-      success:(res)=>{
-        console.log("erweima",res)
-        if(res.data.code==0){
-          console.log(res.data.data.id)
-          that.create(price, name, phone, address, res.data.data.id,that)
-        }else{
-          that.showError()
-        }
-      }
-    })
+    that.create(price, name, phone, address, that)
+
+    // wx.request({
+    //   url: url.getQRCode,
+    //   data:{
+    //     user_id:app.globalData.userId,
+    //     path:"pages/index/call",
+    //     mobile:phone
+    //   },
+    //   success:(res)=>{
+    //     console.log("erweima",res)
+    //     if(res.data.code==0){
+    //       console.log(res.data.data.id)
+    //       that.create(price, name, phone, address, res.data.data.id,that)
+    //     }else{
+    //       that.showError()
+    //     }
+    //   }
+    // })
 
     
   },
@@ -108,7 +128,7 @@ showError:function(){
   })
 },
   //提交订单
-  create: function (price, name, phone, address, qrcode_id,that){
+  create: function (price, name, phone, address,that){
     wx.request({
       url: url.order,
       data: {
@@ -117,7 +137,7 @@ showError:function(){
         consignee: name,
         mobile: phone,
         address: address,
-        qrcode_id: qrcode_id,
+        // qrcode_id: qrcode_id,
         content:"二维码挪车码*2",
         number:that.data.num
       },
@@ -140,7 +160,7 @@ showError:function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getPrice()
   },
 
   /**

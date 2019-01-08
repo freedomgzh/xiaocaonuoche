@@ -1,0 +1,5 @@
+<!--pages/help/index/index.wxml-->
+
+<view class='container'>
+  <image mode='widthFix' src='https://xiaocaonuoche.com/upload/help.png'  ></image>
+</view>

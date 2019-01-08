@@ -7,12 +7,18 @@ page{
 .container{
   position: relative;
   width: 100%;
-  height: 100%;
+  /* height: 100%;
   background: url(https://xiaocaonuoche.com/upload/bg.png)no-repeat;
-    background-size: cover;
+    background-size: cover; */
+}
+.bg{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .apply{
-  position: relative;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top:447rpx;
@@ -27,10 +33,10 @@ line-height: 84rpx;
 border-radius: 15rpx
 }
 .experience{
-  position: relative;
+  position: absolute;
     left: 50%;
   transform: translateX(-50%);
-  top: 508rpx;
+  top: 578rpx;
   width: 80%;
   height: 84rpx;
   text-align: center;

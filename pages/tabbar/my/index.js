@@ -25,7 +25,7 @@ Page({
       {
         imgPath: '/images/phone.png',
         text: '管理手机号',
-        url: "/pages/Shop/shop-cart/index"
+        url: "/pages/mPhone/index/index"
       },
       {
         imgPath: '/images/address.png',
@@ -35,7 +35,7 @@ Page({
       {
         imgPath: '/images/quite.png',
         text: '二维码续费',
-        url: "/pages/Shop/shop-cart/index"
+        url: "/pages/renew/index/index"
       },
 
     ],
@@ -43,18 +43,22 @@ Page({
       {
         imgPath: '/images/help.png',
         text: '使用说明',
-        url: "/pages/Shop/shop-cart/index"
+        url: "/pages/help/index/index"
       },
       {
         imgPath: '/images/kefu.png',
         text: '联系客服',
-        url: "/pages/Shop/shop-cart/index"
+        url: ""
       },
     ]
 
 
   },
-
+  makePhone:function(){
+    wx.makePhoneCall({
+      phoneNumber: '17169661011',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

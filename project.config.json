@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -54,7 +54,19 @@
 				{
 					"id": -1,
 					"name": "order",
-					"pathName": "pages/tabbar/order/index"
+					"pathName": "pages/tabbar/order/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "xufei",
+					"pathName": "pages/renew/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "phone",
+					"pathName": "pages/mPhone/index/index"
 				}
 			]
 		}

@@ -1,0 +1,4 @@
+/* pages/help/index/index.wxss */
+.container image{
+  width: 100%;
+}

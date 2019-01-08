@@ -39,13 +39,20 @@
 
     </view>
     <view class='oMenu'>
-      <view wx:for="{{list}}" class='list'>
+        <block  wx:for="{{list}}">
+      <navigator url='{{item.url}}'>
+
+      <view class='list'  bindtap='{{!item.url?"makePhone":""}}'>
         <view class='left'>
           <image src='{{item.imgPath}}'></image>
           <text>{{item.text}}</text>
         </view>
         <image src='/images/arr.png'></image>
       </view>
+            </navigator>
+
+          </block>
+
     </view>
   </view>
 

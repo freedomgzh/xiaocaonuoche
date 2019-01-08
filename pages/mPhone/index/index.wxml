@@ -1,0 +1,29 @@
+<!--pages/mPhone/index/index.wxml-->
+<view class='container'>
+       <view class="a-gooods" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="a-goods-conts {{item.active? 'active':''}}" bindtap='selectTap' data-index="{{index}}">
+          <view class="goods-info">
+            <view class="img-box" catchtap="{{item.jipincang?'toDetails':'toGoodDetailsTap'}}" data-name="{{item.goods_name}}" data-index="{{index}}" data-jpcId="{{item.jpc_goods_id}}">
+              <image src="{{item.original_img}}" class="img" />
+            </view>
+            <view class="text-box" catchtap="{{item.jipincang?'toDetails':'toGoodDetailsTap'}}" data-id="{{item.goods_id}}" data-name="{{item.goods_name}}" data-index="{{index}}" data-isJpc="{{item.jipincang}}" data-jpcId="{{item.jpc_goods_id}}" data-isShangjia="{{item.isShangjia}}">
+              <view class="goods-title" data-id="{{item.goods_id}}">{{item.goods_name}}
+              </view>
+              <view class='goods-num'>
+                <!-- <text class='red'>￥{{item.is_shangjia?item.floor_price:item.shop_price}}</text> -->
+                <text class='red'>{{item.mobile}} </text>
+                
+
+              </view>
+              <view class='goods-num'>
+                <text class='lightColor'>库存：{{item.goods_number}}<text class='cjfh' wx:if="{{item.is_shipping==1}}">厂家发货 </text></text>
+                
+                <text class='lightColor'>总销量：{{item.salenum}}</text>
+              </view>
+            </view>
+
+          </view>
+        </view>
+  
+      </view>
+</view>

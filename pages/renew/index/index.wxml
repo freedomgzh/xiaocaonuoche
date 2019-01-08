@@ -1,0 +1,6 @@
+<!--pages/renew/index/index.wxml-->
+<view class='container'>
+        <image class='top'  mode='widthFix' src='https://xiaocaonuoche.com/upload/renew_bg.png'></image>
+        <image  class ="int" mode='widthFix' src='https://xiaocaonuoche.com/upload/renew.png'></image>
+        <view class='payNow' bindtap='payNow'>立刻支付</view>
+</view>

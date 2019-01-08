@@ -27,6 +27,17 @@ getQRCode: `${host}/getQRCode`,
 pay: `${host}/wxpay`,
 //支付成功
   paysuccess:`${host}/paysuccess`,
+  //年费支付
+  pay1: `${host}/wxpay1`,
+  //年费支付成功
+  paysuccess1: `${host}/paysuccess1`,
+  //手机管理
+  shouji: `${host}/shouji`,
+  //价格
+  jiage: `${host}/jiage`,
+  //获取年费
+  nianfei: `${host}/nianfei`
+
 };
 
 module.exports = config

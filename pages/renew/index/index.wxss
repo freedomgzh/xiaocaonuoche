@@ -1,0 +1,26 @@
+/* pages/renew/index/index.wxss */
+.page{
+  width: 100%;
+}
+.top{
+  width: 100%;
+}
+.int{
+  width: 90%;
+  position: absolute;
+  top:100rpx;
+  left: 5%;
+
+}
+.payNow{
+  position: relative;
+  top: 264rpx;
+  left: 5%;
+  width: 90%;
+  text-align: center;
+  height: 84rpx;
+  line-height: 84rpx;
+  background-color: #01c12d;
+  border-radius: 15rpx;
+  color: #fff;
+}
