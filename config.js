@@ -22,7 +22,11 @@ const config = {
   //地址详情
   address: `${host}/dizhi`,
   //生成二维码
-getQRCode: `${host}/getQRCode`
+getQRCode: `${host}/getQRCode`,
+//支付
+pay: `${host}/wxpay`,
+//支付成功
+  paysuccess:`${host}/paysuccess`,
 };
 
 module.exports = config

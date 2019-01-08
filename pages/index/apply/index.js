@@ -1,5 +1,7 @@
 // pages/index/apply/index.js
 var url = require("../../../config.js");
+var wxpay = require('../../../utils/pay.js');
+
 let app = getApp()
 Page({
 
@@ -123,9 +125,11 @@ showError:function(){
         console.log("下单", res)
         wx.hideLoading()
         if(res.data.code==0){
-          wx.navigateTo({
-            url: '/pages/tabbar/order/index',
-          })
+          wxpay.wxpay(app, 0, res.data.data.id, "/pages/tabbar/order/index?order_status=2");
+
+          // wx.navigateTo({
+          //   url: '/pages/tabbar/order/index',
+          // })
         }else{
           that.showError();
         }

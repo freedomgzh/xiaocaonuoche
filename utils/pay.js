@@ -1,4 +1,6 @@
 var util = require('util.js');
+var url = require('../config.js')
+
 function wxpay(app, money, orderId, redirectUrl) {
   let remark = "在线充值";
   let nextAction = {};
@@ -12,7 +14,7 @@ function wxpay(app, money, orderId, redirectUrl) {
       console.log("weixincode", res0.code,orderId)
       if (res0.code) {
         wx.request({
-          url: 'https://lmbge.com/wxapi/tuangou/wxpay',
+          url: url.pay,
           data: {
             weixin: res0.code,
             order_id: orderId,
@@ -33,7 +35,7 @@ function wxpay(app, money, orderId, redirectUrl) {
                 paySign: result.paySign,
                 fail: function (aaa) {
                   wx.showToast({ title: '取消支付',icon:"none" }) //
-                  wx.switchTab({
+                  wx.navigateTo({
                     url: redirectUrl
                   });
                 },
@@ -41,7 +43,7 @@ function wxpay(app, money, orderId, redirectUrl) {
                   wx.showToast({ title: '支付成功' })
 
                   wx.request({
-                    url: 'https://lmbge.com/wxapi/tuangou/paysuccess',
+                    url: url.paysuccess,
                     data: {
                       order_id: orderId
 
@@ -65,7 +67,7 @@ function wxpay(app, money, orderId, redirectUrl) {
                       }
                     }
                   })
-                  wx.switchTab({
+                  wx.navigateTo({
                     url: redirectUrl
                   });
                 }

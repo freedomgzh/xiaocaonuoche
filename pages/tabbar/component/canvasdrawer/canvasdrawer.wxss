@@ -1,0 +1,10 @@
+.board {
+  /* position: absolute; */
+	/* top: 100rpx; */
+ left :50%;
+ transform: translate(-50%);
+}
+.canvasdrawer{
+  display: flex;
+  justify-content: center;
+}

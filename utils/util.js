@@ -23,6 +23,14 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+//邮箱以及手机的正则表达式
+function regexConfig() {
+  var reg = {
+    email: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/,
+    phone: /^1(3|4|5|7|8)\d{9}$/
+  }
+  return reg;
+}
 function gettime(res) {
 	//计算出相差天数  
 	var days = Math.floor(res / (24 * 3600 * 1000))
@@ -50,5 +58,6 @@ function gettime(res) {
 module.exports = {
   formatTime: formatTime,
 	gettime: gettime,
-  formatTime2: formatTime2
+  formatTime2: formatTime2,
+  regexConfig: regexConfig
 }

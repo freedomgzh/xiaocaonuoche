@@ -1,18 +1,17 @@
 <view class='layout-doing' wx:for="{{orderList}}" wx:key="{{index}}">
   <view class='view-card'>
-    <view class='view-field view-divide'>
-      <text class='pay-type times'>下单时间：</text>
+    <view class='view-field view-divide flex'>
+    <view>
+              <text class='pay-type times'>下单时间：</text>
       <text>{{item.add_time}}</text>
+    </view>
+
+      <text class='status'>{{item.pay_status==1?"待付款":"已付款"}}</text>
     </view>
 
     <view class='view-field'>
       <text class="pay-type  ">支付金额：</text>
       <text style='color:#01c12d'>￥ {{item.order_amount}}</text>
-      <text class="main-color {{item.order_amount?'ky':'hk'}} " wx:if="{{item.order_status==0}}" bindtap="{{item.order_amount?'toPay':''}}" data-paytype='{{item.paytype}}' data-id='{{item.order_id}}' data-sn="{{item.order_sn}}"> (未支付)</text>
-      <text class="main-color" wx:elif="{{item.order_status==1}}"> (已付款)</text>
-      <text class="main-color" wx:elif="{{item.order_status==0}}"> (已确认)</text>
-      <text class="main-color" wx:elif="{{item.order_status==0}}"> (已取消)</text>
-
     </view>
     <view class="view-field">
       <text class='pay-type'>购买数量：</text>
@@ -26,7 +25,7 @@
       <text class='pay-type'>邮递地址：</text>
       <text class='view-field-text'>{{item.address}}</text>
     </view>
-    <view class='payBox'>  <view class='payBtn'>支付</view>   </view>
+    <view class='payBox'>  <view class='payBtn' bindtap='toPay' data-id="{{item.id}}" wx:if="{{item.pay_status==1}}">支付</view>   </view>
   </view>
 </view>
 

@@ -9,11 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    payTypes: {
-      WECHAT_PAY: "微信支付",
-      CASH_PAY: "货到付款",
-      PAY_NOW: "PayNow支付"
-    },
+
   },
   getOrderList: function() {
     var that = this;
@@ -60,29 +56,10 @@ Page({
    */
   toPay: function(e) {
     console.log(e)
-    var paytype = e.currentTarget.dataset.paytype
     var order_id = e.currentTarget.dataset.id
     console.log(order_id)
-    // if (paytype == "wx") {
-    //   wxpay.wxpay(app, 0, order_id, "/pages/tabbar/order/index?order_status=2");
-    // }
-    // else {
-      wx.showActionSheet({
-        itemList: ["微信支付", "paynow支付"],
-        success(res) {
-          console.log(res)
-          if (res.tapIndex == 0) {
-            wxpay.wxpay(app, 0, order_id, "/pages/tabbar/order/index?order_status=2");
-
-          } else if (res.tapIndex == 1) {
-            var order_sn = e.currentTarget.dataset.sn
-            wx.navigateTo({
-              url: '/pages/paynow/to-paynow/index?order_sn=' + order_sn + "&order_id=" + order_id,
-            })
-          }
-        }
-      })
-    // }
+      wxpay.wxpay(app, 0, order_id, "/pages/tabbar/order/index?order_status=2");
+    
   },
   onLoad: function(options) {
     var newDate = new Date().getTime()

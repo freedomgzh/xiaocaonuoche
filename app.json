@@ -19,9 +19,9 @@
       ]
     },
     {
-      "root": "pages/paynow/",
+      "root": "pages/poster/",
       "pages": [
-        "to-paynow/index"
+        "index/index"
       ]
     }
   ],
