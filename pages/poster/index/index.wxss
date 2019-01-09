@@ -1,63 +1,61 @@
-/* pages/paynow/paynow/index.wxss */
-page {
-  background-color: #fff;
-}
 .container{
-  font-size: 32rpx;
+  padding: 30rpx;
 }
-.pay-img {
-  margin: auto;
-  padding-top: 90rpx;
-  text-align: center;
-}
+.content{
+  background-color: #ecfef7;
+  border-radius: 15rpx;
+  position: relative;
 
-.pay-img canvas {
-  border: 10rpx solid #d2d2d2;
-  padding: 20rpx;
-  width: 400rpx;
-  height: 400rpx;
-	display: inline-block
 }
-.back{
-  color: #d2d2d2;
+.title{
+  text-align: center;
+  color: #71bcff;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
 }
-.pay-reminder {
+.tishi{
+  text-align: center;
+  color: #999999;
+  position: relative;
+}
+.bg{
+  position: relative;
+  top:38rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tishiS{
+  color: #71bcff;
+  text-align: center;
+  font-size: 28rpx;
   margin-top: 60rpx;
+ padding: 0 10rpx;
+}
+.tishiS text{
+  color: #333;
+  font-size: 30rpx;
+}
+.code{
+  width: 196rpx;
+  position: absolute;
+  top: 400rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn{
+   height: 84rpx;
+ line-height: 84rpx;
+ color: #fff;
+  border-radius: 15rpx;
   text-align: center;
-	line-height: 60rpx;
-	margin-bottom: 100rpx
-}
- .red{
-	color: #e50012;
-	padding: 0 5rpx;
-}
-.pay-num{
-	margin-top: 10rpx;
-}
-.underline{
-	text-decoration: underline
-}
-.btnBox{
-  display: flex;
-  justify-content: space-around;
+  margin-top: 28rpx;
 
 }
-.confirm{
-
-width: 30%;
-border-radius: 5rpx;
-height: 80rpx;
-line-height: 80rpx;
-text-align: center;
-color: #fff;
-background-color: #ef2612;
+.apply{
+  background-color: #01c12d;
 }
-.changePay{
-  width: 30%;
+.delete{
 
-border: 1px solid#f6d4ca;
-border-radius: 5rpx;
-height: 80rpx;
-line-height: 80rpx;
-text-align: center;
+ background-color: #71bcff;
 }

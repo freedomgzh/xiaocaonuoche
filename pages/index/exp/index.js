@@ -39,7 +39,7 @@ code:function(){
       if (res.data.code == 0) {
         console.log(res.data.data.id)
         wx.navigateTo({
-          url: '/pages/',
+          url: '/pages/poster/index/index?url='+res.data.data.url+ "&id=" + res.data.data.id ,
         })
       } else {
         that.showError()

@@ -36,6 +36,13 @@
       "pages": [
         "index/index"
       ]
+    },
+    {
+      "root": "pages/addphone",
+      "pages": [
+        "index/index",
+        "edit/index"
+      ]
     }
   ],
   "window": {

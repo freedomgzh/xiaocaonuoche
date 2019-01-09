@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "推广海报",
-  "usingComponents": {
-    "canvasdrawer": "/pages/tabBar/component/canvasdrawer/canvasdrawer"
-  }
+  "navigationBarTitleText": "推广海报"
+
 }

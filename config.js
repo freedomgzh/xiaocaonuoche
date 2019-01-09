@@ -36,7 +36,15 @@ pay: `${host}/wxpay`,
   //价格
   jiage: `${host}/jiage`,
   //获取年费
-  nianfei: `${host}/nianfei`
+  nianfei: `${host}/nianfei`,
+  codeInfo: `${host}/qrcodeinfo`,
+  delqrcode: `${host}/delqrcode`,
+  delshouji: `${host}/delshouji`,
+  editshouji: `${host}/editshouji`,
+  addshouji: `${host}/addshouji`,
+
+
+  
 
 };
 

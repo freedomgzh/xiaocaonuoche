@@ -1,0 +1,36 @@
+/* pages/addphone/edit/index.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100;
+    height: 100%;
+    background-color: #f8f8f8;
+    position: relative;
+
+}
+.container input{
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 60rpx;
+  transform: translateX(-50%);
+}
+.addPhone{
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #01c12d;
+  position: absolute;
+  bottom: 280rpx;
+   left: 50%;
+   transform: translateX(-50%);
+  width: 90%;
+  border-radius: 15rpx;
+}
