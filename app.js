@@ -1,4 +1,7 @@
 //app.js
+//all by guanzhihao 
+// not  a perfect program
+//but a practical  program
 var url = require("config.js");
 App({
   onLaunch: function() {

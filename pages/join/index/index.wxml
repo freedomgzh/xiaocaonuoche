@@ -1,0 +1,36 @@
+<!--pages/join/index/index.wxml-->
+<view class='container'>
+  <input placeholder='请输入您的姓名' bindinput='name'></input>
+  <input placeholder='请输入您的手机号码' bindinput='phone'></input>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+
+  <view class='listBox'>
+
+    <view class='listname'>请选择城市：</view>
+      <view class="picker">
+        <view style='margin-right:10rpx;'>
+          {{region[0]}} {{region[1]}} {{region[2]}}
+        </view>
+        <image src='/images/arr.png'></image>
+      </view>
+
+  </view>
+              </picker>
+
+
+  <view class='listBox'>
+        <textarea placeholder='请输入详细地址' class='addressDetail'  bindinput='addressDetail'></textarea>
+
+  </view>
+  <view class='text-box'>
+        <text class='tishi' style='margin-right:10rpx;'>*</text> <text >留言</text>
+
+  </view>
+    <view class='listBox'>
+        <textarea placeholder="您对我们的客户端有任何优化建议,请您点击留言" class='addressDetail' bindinput='suggest'></textarea>
+
+  </view>
+  <view class='text-box' style='color:#cccccc'>注： <text class='tishi' style='font-size:30rpx; margin-right:10rpx;'>* </text>为选填信息   </view>
+
+  <view class="apply" bindtap='apply'>立即申请</view>
+</view>

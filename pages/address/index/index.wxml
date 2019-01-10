@@ -1,22 +1,28 @@
-<!--pages/mPhone/index/index.wxml-->
+<!--pages/address/index/index.wxml-->
 <view class='container'>
   <view style='height:20rpx'></view>
   <view class="a-gooods" wx:for="{{list}}" wx:key="{{index}}">
 
-    <view class="text-box" catchtap="{{item.jipincang?'toDetails':'toGoodDetailsTap'}}" data-index="{{index}}">
+    <view class="text-box border"  data-index="{{index}}">
       <view class='goods-num'>
+        <text>{{item.consignee}}</text>
         <text class='red'>{{item.mobile}} </text>
       </view>
       <view class='iconfont icon-duihao1' wx:if="{{item.moren}}"></view>
     </view>
+      <view class="text-box"  data-index="{{index}}">
+      <view class='goods-num'>
+      <text>{{item.address}}</text>
+      </view>
+    </view>
     <view class="a-goods-conts {{item.moren? 'active':''}}">
       <view class='goods-label'  bindtap='selectTap' data-index="{{index}}">已设为默认</view>
       <view class='goods-label'>
-        <view bindtap='edit' data-id='{{item.mobile_id}}'>
+        <view bindtap='edit' data-id='{{item.address_id}}'>
           <text class='lightColor  iconfont icon-bianji'></text>
           <text class='cjfh'>编辑 </text>
         </view>
-        <view bindtap='del' data-id='{{item.mobile_id}}' data-moren="{{item.moren}}">
+        <view bindtap='del' data-id='{{item.address_id}}' data-moren="{{item.moren}}">
           <text class='lightColor  iconfont icon-shanchu1'></text>
           <text>删除</text>
         </view>
@@ -25,5 +31,5 @@
     </view>
 
   </view>
-  <view class='addPhone' bindtap='addPhone'>添加手机</view>
+  <view class='addPhone' bindtap='addPhone'>添加地址</view>
 </view>

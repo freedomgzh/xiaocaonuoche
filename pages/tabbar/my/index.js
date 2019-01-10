@@ -30,7 +30,7 @@ Page({
       {
         imgPath: '/images/address.png',
         text: '我的地址',
-        url: "/pages/order/index"
+        url: "/pages/address/index/index"
       },
       {
         imgPath: '/images/quite.png',
@@ -53,6 +53,11 @@ Page({
     ]
 
 
+  },
+  join:function(){
+    wx.navigateTo({
+      url: '/pages/join/index/index',
+    })
   },
   makePhone:function(){
     wx.makePhoneCall({

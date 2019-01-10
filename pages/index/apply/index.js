@@ -80,9 +80,9 @@ num:1,
     return
   }
 
-  if(!phone){
+    if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))){
     wx.showToast({
-      title: '请输入电话',
+      title: '电话输入错误',
       icon:"none"
     })
     return

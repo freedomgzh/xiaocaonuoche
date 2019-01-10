@@ -3,7 +3,8 @@
     "pages/tabbar/index/index",
     "pages/tabbar/order/index",
     "pages/tabbar/my/index",
-    "pages/mPhone/index/index"
+    "pages/mPhone/index/index",
+    "pages/address/index/index"
   ],
   "subPackages": [
     {
@@ -42,6 +43,18 @@
       "pages": [
         "index/index",
         "edit/index"
+      ]
+    },
+    {
+      "root": "pages/join",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/adddizhi",
+      "pages": [
+        "index/index"
       ]
     }
   ],

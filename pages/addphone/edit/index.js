@@ -23,7 +23,7 @@ Page({
     if (this.checkPhone(that.data.mobile)) {
       wx.showModal({
         title: '提示',
-        content: '是否将手机号设置为默认',
+        content: '是否修改手机号',
         cancelText: "否",//默认是“取消”
         cancelColor: '',//取消文字的颜色
         confirmText: "是",//默认是“确定”
@@ -31,10 +31,9 @@ Page({
         success: function (res) {
           if (res.cancel) {
             //点击取消,默认隐藏弹框
-            that.fuck(0)
           } else {
             //点击确定
-            that.fuck(1)
+            that.fuck()
 
           }
         },
@@ -46,10 +45,11 @@ Page({
   },
   fuck: function (moren) {
     wx.request({
-      url: url.addshouji,
+      url: url.editshouji,
       data: {
         user_id: app.globalData.userId,
         mobile: this.data.mobile,
+        mobile_id:this.data.mobile_id
       },
       success: (res) => {
         if (res.data.code == 0) {
@@ -81,14 +81,17 @@ Page({
   },
   search: function (e) {
     this.setData({
-      mobile: e.detail.value
+      mobile: e.detail.value,
+
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.setData({
+        mobile_id:options.id
+      })
   },
 
   /**

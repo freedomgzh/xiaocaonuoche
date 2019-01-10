@@ -1,4 +1,4 @@
-/* pages/mPhone/index/index.wxss */
+/* pages/address/index/index.wxss */
 page{
   height: 100%;
 }
@@ -60,6 +60,9 @@ height: 100%;
   height: 100rpx;
   line-height: 100rpx;
 }
+.goods-num text{
+  margin-right: 20rpx;
+}
 .goods-label{
   height: 100rpx;
   line-height: 100rpx;
@@ -79,6 +82,9 @@ height: 100%;
 justify-content: space-between;
   border-bottom: 1px solid#eeeeee;
 
+}
+.border{
+  border: none;
 }
 .icon-duihao1{
   font-size: 40rpx;

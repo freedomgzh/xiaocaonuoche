@@ -11,7 +11,7 @@
       <view class='userinfo-name'>
         <view class="userinfo-nickname">{{userInfo.nickName}}</view>
         <view class='toJoin'>
-          <view class='JoinBtn'>代理商申请</view>
+          <view class='JoinBtn' bindtap='join'>代理商申请</view>
         </view>
         <view>
         </view>

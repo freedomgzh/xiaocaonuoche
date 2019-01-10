@@ -42,6 +42,15 @@ pay: `${host}/wxpay`,
   delshouji: `${host}/delshouji`,
   editshouji: `${host}/editshouji`,
   addshouji: `${host}/addshouji`,
+  sqdl: `${host}/sqdl`,
+  dizhi: `${host}/dizhi`,
+ adddizhi: `${host}/adddizhi`,
+ editdizhi: `${host}/editdizhi`,
+  deldizhi: `${host}/deldizhi`,
+
+
+
+
 
 
   

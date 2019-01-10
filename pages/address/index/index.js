@@ -1,6 +1,6 @@
-// pages/mPhone/index/index.js
+// pages/address/index/index.js
 var url = require("../../../config.js")
-var app = getApp();
+var app = getApp()
 Page({
 
   /**
@@ -9,44 +9,51 @@ Page({
   data: {
 
   },
-  changeData: function () {
 
-    var options = {  }
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+      this.getList();
+  },
 
-    this.onLoad(options);//最好是只写需要刷新的区域的代码，onload也可，效率低，有点low
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
   },
-  addPhone:function(){
+  addPhone: function () {
     wx.navigateTo({
-      url: '/pages/addphone/index/index',
+      url: '/pages/adddizhi/index/index',
     })
 
   },
-  del:function(e){
+  del: function (e) {
     console.log(e)
-    var that =this
-    if (e.currentTarget.dataset.moren==1){
+    var that = this
+    if (e.currentTarget.dataset.moren == 1) {
       wx.showToast({
-        title: '默认电话能不删除',
-        icon:"none"
+        title: '默认地址不能删除',
+        icon: "none"
       })
       return
     }
     wx.request({
-      url: url.delshouji,
+      url: url.deldizhi,
       data: {
-        mobile_id: e.currentTarget.dataset.id
+        address_id: e.currentTarget.dataset.id,
       },
-      success:(res)=>{
-          console.log(res)
-          wx.showToast({
-            title: '删除成功',
-          })
+      success: (res) => {
+        console.log(res)
+        wx.showToast({
+          title: '删除成功',
+        })
         that.getList()
       }
     })
   },
-  edit:function(e){
+  edit: function (e) {
     wx.navigateTo({
       url: '/pages/addphone/edit/index?id=' + e.currentTarget.dataset.id,
     })
@@ -78,48 +85,34 @@ Page({
     })
     var list = this.data.list;
     for (var i = 0; i < list.length; i++) {
-        list[i].moren = 0
+      list[i].moren = 0
       this.setData({
         list: this.data.list,
       })
     }
   },
-  getList:function(){
-  var that =this;
-  wx.request({
-    url: url.shouji,
-    data:{
-      user_id: app.globalData.userId
-    },
-    success:(res)=>{
-      console.log(res)
-      if(res.data.code==0){
-      that.setData({
-        list:res.data.data
-      })
-      }else{
-        wx.showToast({
-          title: '接口错误',
-          icon:"none"
-        })
+  getList: function () {
+    var that = this;
+    wx.request({
+      url: url.dizhi,
+      data: {
+        user_id: app.globalData.userId
+      },
+      success: (res) => {
+        console.log(res)
+        if (res.data.code == 0) {
+          that.setData({
+            list: res.data.data
+          })
+        } else {
+          wx.showToast({
+            title: '接口错误',
+            icon: "none"
+          })
+        }
       }
-    }
-  })
+    })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.getList()
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */

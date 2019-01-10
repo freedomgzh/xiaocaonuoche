@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -72,7 +72,19 @@
 				{
 					"id": -1,
 					"name": "erweima",
-					"pathName": "pages/poster/index/index"
+					"pathName": "pages/poster/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "代理",
+					"pathName": "pages/join/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "dizhi",
+					"pathName": "pages/address/index/index"
 				}
 			]
 		}

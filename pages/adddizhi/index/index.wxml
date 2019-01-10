@@ -1,0 +1,9 @@
+<!--pages/adddizhi/index/index.wxml-->
+
+<view class='container'>
+  <input bindinput='search' type='number' placeholder='请输入您的姓名'></input>
+    <input bindinput='' type='number' placeholder='请输入您的手机号'></input>
+
+
+  <view class='addPhone' bindtap='toAdd'>确定添加</view>
+</view>
