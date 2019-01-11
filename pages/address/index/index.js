@@ -16,7 +16,9 @@ Page({
   onLoad: function (options) {
       this.getList();
   },
-
+  changeData:function(){
+    this.onLoad()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -55,7 +57,7 @@ Page({
   },
   edit: function (e) {
     wx.navigateTo({
-      url: '/pages/addphone/edit/index?id=' + e.currentTarget.dataset.id,
+      url: '/pages/adddizhi/edit/index?id=' + e.currentTarget.dataset.id,
     })
     // wx.request({
     //   url: url.editshouji,
@@ -67,7 +69,7 @@ Page({
   selectTap: function (e) {
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
-
+    var id = e.currentTarget.dataset.id
     if (index !== "" && index != null) {
       this.noSelect();
       list[parseInt(index)].moren = !list[parseInt(index)].moren;
@@ -75,9 +77,30 @@ Page({
       this.setData({
         list: this.data.list,
       })
-
+      this.moren(id)
     }
 
+  },
+  moren: function (address_id){
+    wx.request({
+      url: url.mrdizhi,
+      data:{
+        address_id: address_id,
+        user_id:app.globalData.userId
+      },
+      success:(res)=>{
+        console.log("res",res);
+        if(res.data.code==0){
+        wx.showToast({
+          title: '设置成功'
+        })
+        }else{
+          wx.showToast({
+            title: '数据错误',
+          })
+        }
+      }
+    })
   },
   noSelect: function () {
     this.setData({

@@ -1,4 +1,4 @@
-/* pages/adddizhi/index/index.wxss */
+/* pages/adddizhi/edit/index.wxss */
 page{
   height: 100%;
 }

@@ -16,7 +16,7 @@
       </view>
     </view>
     <view class="a-goods-conts {{item.moren? 'active':''}}">
-      <view class='goods-label'  bindtap='selectTap' data-index="{{index}}">已设为默认</view>
+      <view class="goods-label {{item.moren? 'green':''}}" bindtap='selectTap' data-index="{{index}}" data-id='{{item.address_id}}'>已设为默认</view>
       <view class='goods-label'>
         <view bindtap='edit' data-id='{{item.address_id}}'>
           <text class='lightColor  iconfont icon-bianji'></text>

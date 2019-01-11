@@ -47,7 +47,7 @@ pay: `${host}/wxpay`,
  adddizhi: `${host}/adddizhi`,
  editdizhi: `${host}/editdizhi`,
   deldizhi: `${host}/deldizhi`,
-
+  mrdizhi: `${host}/mrdizhi`,
 
 
 

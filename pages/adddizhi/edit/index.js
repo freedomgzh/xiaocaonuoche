@@ -1,4 +1,4 @@
-// pages/addphone/edit/index.js
+// pages/adddizhi/edit/index.js
 var util = require("../../../utils/util.js")
 var url = require("../../../config.js")
 var app = getApp()
@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    region: []
   },
   toAdd: function () {
 
@@ -21,37 +21,80 @@ Page({
       return
     }
     if (this.checkPhone(that.data.mobile)) {
-      wx.showModal({
-        title: '提示',
-        content: '是否修改',
-        cancelText: "否",//默认是“取消”
-        cancelColor: '',//取消文字的颜色
-        confirmText: "是",//默认是“确定”
-        confirmColor: 'green',//确定文字的颜色
-        success: function (res) {
-          if (res.cancel) {
-            //点击取消,默认隐藏弹框
-          } else {
-            //点击确定
-            that.fuck()
-
-          }
-        },
-
-
-      })
+      that.fuck(that)
 
     }
   },
-  fuck: function () {
+  name: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  phone: function (e) {
+    this.setData({
+      mobile: e.detail.value
+    })
+  },
+  addressDetail: function (e) {
+    this.setData({
+      address: e.detail.value
+    })
+  },
+  getList: function () {
+    var that = this;
     wx.request({
-      url: url.editshouji,
+      url: url.dizhi,
       data: {
-        user_id: app.globalData.userId,
-        mobile: this.data.mobile,
-        mobile_id:this.data.mobile_id
+        user_id: app.globalData.userId
       },
       success: (res) => {
+        console.log(res)
+        if (res.data.code == 0) {
+          that.setData({
+            list: res.data.data
+          })
+          var data = res.data.data
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].address_id == that.data.address_id) {
+              var region = []
+
+
+
+              region[0] = data[i].sheng
+              region[1] = data[i].shi
+              region[2] = data[i].qu
+              that.setData({
+                detail: data[i],
+                mobile: data[i].mobile,
+                region: region,
+                address: data[i].address,
+                name:data[i].consignee
+              })
+              console.log(that.data.region)
+
+              break;
+            }
+          }
+
+        } 
+      }
+    })
+  },
+  fuck: function (that) {
+    wx.request({
+      url: url.editdizhi,
+      data: {
+        user_id: app.globalData.userId,
+        mobile: that.data.mobile,
+        address_id: that.data.address_id,
+        sheng: that.data.region[0],
+        shi: that.data.region[1],
+        qu: that.data.region[2],
+        address: that.data.address,
+        consignee: that.data.name
+      },
+      success: (res) => {
+        console.log(that.data.region)
         if (res.data.code == 0) {
           var pages = getCurrentPages();//当前页面栈
           var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
@@ -81,16 +124,18 @@ Page({
   },
   search: function (e) {
     this.setData({
-      mobile: e.detail.value
+      mobile: e.detail.value,
+
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-        mobile_id:options.id
-      })
+    this.setData({
+      address_id: options.id
+    })
+    this.getList();
   },
 
   /**
@@ -134,7 +179,12 @@ Page({
   onReachBottom: function () {
 
   },
-
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
+  },
   /**
    * 用户点击右上角分享
    */

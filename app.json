@@ -54,6 +54,13 @@
     {
       "root": "pages/adddizhi",
       "pages": [
+        "index/index",
+        "edit/index"
+      ]
+    },
+    {
+      "root": "pages/quite",
+      "pages": [
         "index/index"
       ]
     }

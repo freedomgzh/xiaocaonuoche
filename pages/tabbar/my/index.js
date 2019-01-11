@@ -20,7 +20,7 @@ Page({
       {
         imgPath: '/images/quite.png',
         text: '勿扰模式',
-        url: "/pages/Shop/shop-cart/index"
+        url: "/pages/quite/index/index"
       },
       {
         imgPath: '/images/phone.png',
