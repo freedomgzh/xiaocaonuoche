@@ -1,2 +1,13 @@
 <!--pages/quite/index/index.wxml-->
-<text>pages/quite/index/index.wxml</text>
+<view class='container'>
+    <view  class='d-y'>
+      <view>相对免打扰</view>
+        <switch checked bindchange="switch1Change" />
+
+    </view>
+        <view class='d-h'>
+      <view >绝对免打扰</view>
+        <switch checked bindchange="switch2Change" />
+
+    </view>
+</view>

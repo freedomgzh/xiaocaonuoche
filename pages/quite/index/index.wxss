@@ -1,1 +1,13 @@
 /* pages/quite/index/index.wxss */
+.d-y{
+  display: flex;
+  justify-content: space-between;
+  height: 98rpx;
+  line-height: 98rpx;
+}
+.d-h{
+  display: flex;
+    justify-content: space-between;
+ height: 98rpx;
+  line-height: 98rpx;
+}
