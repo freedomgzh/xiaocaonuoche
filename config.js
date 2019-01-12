@@ -48,8 +48,13 @@ pay: `${host}/wxpay`,
  editdizhi: `${host}/editdizhi`,
   deldizhi: `${host}/deldizhi`,
   mrdizhi: `${host}/mrdizhi`,
+  userinfo: `${host}/userinfo`,
+  duanxinfei: `${host}/duanxinfei`,
+  jdmdr: `${host}/jdmdr`,
+  xdmdr: `${host}/xdmdr`,
+  gxmdr: `${host}/gxmdr`,
 
-
+  
 
 
 

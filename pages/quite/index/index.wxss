@@ -1,13 +1,54 @@
 /* pages/quite/index/index.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+.container{
+  position: relative;
+    height: 100%;
+
+}
 .d-y{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 98rpx;
   line-height: 98rpx;
+  background-color: #fff;
+  padding-left: 32rpx;
+  position: relative;
+  top: 20rpx;
 }
 .d-h{
   display: flex;
     justify-content: space-between;
+     align-items: center;
  height: 98rpx;
   line-height: 98rpx;
+    background-color: #fff;
+  padding-left: 32rpx;
+    position: relative;
+  top: 40rpx;
+}
+.bg{
+  position: relative;
+  top: 330rpx;
+}
+.label{
+  height: 82rpx;
+  line-height: 82rpx;
+    position: relative;
+  top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+    padding-left: 32rpx;
+        padding-right: 62rpx;
+
+font-size:30rpx;
+color: #999999;
+}
+.iconfont{
+  color: #02c12e;
 }

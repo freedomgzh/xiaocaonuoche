@@ -1,13 +1,22 @@
 <!--pages/quite/index/index.wxml-->
 <view class='container'>
-    <view  class='d-y'>
-      <view>相对免打扰</view>
-        <switch checked bindchange="switch1Change" />
-
-    </view>
-        <view class='d-h'>
-      <view >绝对免打扰</view>
-        <switch checked bindchange="switch2Change" />
-
-    </view>
+  <view class='d-y'>
+    <view>绝对免打扰</view>
+    <switch checked="{{ab}}" bindchange="switch1Change" />
+  </view>
+  <view class='d-h'>
+    <view> 相对免打扰</view>
+    <switch checked="{{ra}}" bindchange="switch2Change" />
+  </view>
+  <view>
+    <view class='label' hidden='{{!ra}}'>
+      <text>微信通知</text>
+      <text class='iconfont icon-duihao1'  ></text> </view>
+    <view class='label' hidden='{{!ra}}'>
+      <text>短信通知</text>
+      <text class='iconfont icon-duihao1'></text> </view>
+  </view>
+  <view class='bg'>
+    <image mode='widthFix' src='https://xiaocaonuoche.com/upload/slices_bg.png'></image>
+  </view>
 </view>
