@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showA:true,
+    showB:false
   },
 // xiangdui:function(){
 //   wx.request({
@@ -19,6 +20,24 @@ Page({
 //     }
 //   })
 // },
+  select:function(e){
+    console.log(e)
+    if (e.currentTarget.dataset.id==1){
+      this.setData({
+        showA: false,
+        showB: !this.data.showB
+
+      })
+    }else {
+      this.setData({
+        showA: !this.data.showA,
+        showB: false
+
+      })
+    }
+
+  },
+
 guanbi:function(){
   var that =this;
   wx.request({
@@ -102,12 +121,15 @@ getUserInfo:function(){
   },
   switch2Change(e) {
     console.log('switch2 发生 change 事件，携带值为', e.detail.value)
+    var that =this;
     wx.showModal({
       title: '提示',
       content: '',
     })
     if (e.detail.value){
-
+          this.setData({
+            show:true
+          })
     }
   },
   /**
