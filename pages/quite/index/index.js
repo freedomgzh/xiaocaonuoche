@@ -26,14 +26,14 @@ Page({
       this.setData({
         showA: false,
         showB: !this.data.showB
-
       })
+
     }else {
       this.setData({
         showA: !this.data.showA,
         showB: false
-
       })
+
     }
 
   },
@@ -69,6 +69,7 @@ guanbi:function(){
       },
       success:(res)=>{
         if(res.data.code==0){
+          console.log(res)
           this.setData({
             feiyong:res.data.data
           })
@@ -89,6 +90,9 @@ getUserInfo:function(){
     },
     success:(res)=>{
       console.log(res)
+      this.setData({
+        had:res.data.data.duanxinfei
+      })
       if(res.data.code==0){
         if (res.data.data.miandarao==1){
           this.setData({
@@ -122,10 +126,26 @@ getUserInfo:function(){
   switch2Change(e) {
     console.log('switch2 发生 change 事件，携带值为', e.detail.value)
     var that =this;
-    wx.showModal({
-      title: '提示',
-      content: '',
-    })
+    if(this.data.duanxinfei){
+      wx.showModal({
+        title: '提示',
+        content: '开通免打扰需要交付2.00元每年短信费',
+        confirmText:"确定",
+       cancelText:"取消" ,
+       success:(res)=>{
+         if (res.cancel) {
+           //点击取消,默认隐藏弹框
+         } else {
+           //点击确定
+            wx.navigateTo({
+              url: '/pages/carNumber/index/index?money=' + that.data.money,
+            })
+         }
+
+       }
+      })
+    }
+
     if (e.detail.value){
           this.setData({
             show:true

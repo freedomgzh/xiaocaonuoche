@@ -9,9 +9,9 @@
     <switch checked="{{ra}}" bindchange="switch2Change" />
   </view>
   <view>
-    <view class='label' hidden='{{ra}}' bindtap='select' data-id='0'>
+    <!-- <view class='label' hidden='{{ra}}' bindtap='select' data-id='0'>
       <text>微信通知</text>
-      <text class='iconfont icon-duihao1' hidden='{{!showA}}'></text> </view>
+      <text class='iconfont icon-duihao1' hidden='{{!showA}}'></text> </view> -->
     <view class='label' hidden='{{ra}}' bindtap='select' data-id='1'>
       <text>短信通知</text>
       <text class='iconfont icon-duihao1' hidden='{{!showB}}'></text> </view>
