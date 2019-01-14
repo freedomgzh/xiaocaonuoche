@@ -63,6 +63,12 @@
       "pages": [
         "index/index"
       ]
+    } ,
+    {
+      "root": "pages/carNumber",
+      "pages": [
+        "index/index"
+      ]
     }
   ],
   "window": {
@@ -75,7 +81,7 @@
   },
   "tabBar": {
     "color": "#707070",
-    "selectedColor": "#58BD9C",
+    "selectedColor": "#02c12e",
     "borderStyle": "white",
     "backgroundColor": "#fff",
     "list": [

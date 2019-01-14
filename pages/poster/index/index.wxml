@@ -3,7 +3,8 @@
   <view class='content'>
     <view class='title'>挪车体验码</view>
     <view class='tishi'>注：此二维码仅作为体验使用</view>
-    <image class='bg' mode='widthFix' src='https://xiaocaonuoche.com/upload/code_bg.png'></image>
+    <view class='bg' >    <image mode='widthFix' src='https://xiaocaonuoche.com/upload/code_bg.png'></image>
+</view>
     <image class='code' src='{{code}}' mode='widthFix'></image>
       <view class='tishiS'>点击申请邮寄，您将收到一套精美的官方挪车码，请在收到后按照说明书 <text>重新绑定</text> 使用  </view>
   </view>

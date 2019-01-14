@@ -10,16 +10,30 @@ Page({
     showA:true,
     showB:false
   },
-// xiangdui:function(){
-//   wx.request({
-//     url:url.xdmdr,
-//     data:{
-//       user_id:app.globalData.userId,
-//       chepaihao:
+xiangdui:function(){
+var that =this
+      wx.request({
+        url: url.xdmdr,
+        data: {
+          user_id: app.globalData.userId,
+          duanxinfei:that.data.feiyong,
+          chepaihao: that.data.chepaihao,
 
-//     }
-//   })
-// },
+        },
+        success: function (res) {
+          console.log("下单", res)
+          wx.hideLoading()
+          if (res.data.code == 0) {
+   
+
+    that.getUserInfo();
+        } else {
+          // that.showError();
+        }
+      }
+    })
+
+},
   select:function(e){
     console.log(e)
     if (e.currentTarget.dataset.id==1){
@@ -46,7 +60,7 @@ guanbi:function(){
       user_id:app.globalData.userId
     },
     success:function(res){
-
+      that.getUserInfo()
     },
   })
 },
@@ -58,6 +72,7 @@ guanbi:function(){
     },
     success:(res)=>{
         console.log(res)
+      this.getUserInfo()
     }
     })
   },
@@ -89,18 +104,21 @@ getUserInfo:function(){
       user_id:app.globalData.userId
     },
     success:(res)=>{
-      console.log(res)
+      console.log("userinfo",res)
       this.setData({
-        had:res.data.data.duanxinfei
+        had:res.data.data.duanxinfei,
+        chepaihao:res.data.data.chepaihao
       })
       if(res.data.code==0){
         if (res.data.data.miandarao==1){
           this.setData({
-            ra:true
+            ra:true,
+            ab:false,
           })
         } else if (res.data.data.miandarao==2){
           this.setData({
-            ab: true
+            ab: true,
+            ra:false
           })
         }else{
           this.setData({
@@ -113,20 +131,32 @@ getUserInfo:function(){
     }
   })
 },
-
+guan:function(){
+  var that =this;
+  wx.request({
+    url:url.gxmdr,
+    data:{
+      user_id:app.globalData.userId,
+    },
+    success:(res)=>{
+      that.getUserInfo()
+    }
+  })
+},
   switch1Change(e) {
     var that =this;
     if (e.detail.value){
       that.juedui()
     }
     else{
-      that.userinfo();
+      that.guan();
     }
   },
   switch2Change(e) {
     console.log('switch2 发生 change 事件，携带值为', e.detail.value)
     var that =this;
-    if(this.data.duanxinfei){
+    console.log(this.data.had)
+    if (!this.data.had && e.detail.value){
       wx.showModal({
         title: '提示',
         content: '开通免打扰需要交付2.00元每年短信费',
@@ -138,12 +168,16 @@ getUserInfo:function(){
          } else {
            //点击确定
             wx.navigateTo({
-              url: '/pages/carNumber/index/index?money=' + that.data.money,
+              url: '/pages/carNumber/index/index?money=' + that.data.feiyong,
             })
          }
 
        }
       })
+    } else if (this.data.had && e.detail.value){
+      that.xiangdui()
+    } else if (this.data.had && !e.detail.value){
+      that.guanbi()
     }
 
     if (e.detail.value){

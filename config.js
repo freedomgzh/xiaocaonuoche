@@ -31,6 +31,7 @@ pay: `${host}/wxpay`,
   pay1: `${host}/wxpay1`,
   //年费支付成功
   paysuccess1: `${host}/paysuccess1`,
+  paysuccess2: `${host}/paysuccess2`,
   //手机管理
   shouji: `${host}/shouji`,
   //价格
@@ -54,7 +55,7 @@ pay: `${host}/wxpay`,
   xdmdr: `${host}/xdmdr`,
   gxmdr: `${host}/gxmdr`,
 
-  
+ 
 
 
 

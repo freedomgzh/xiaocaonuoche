@@ -1,5 +1,6 @@
 .container{
   padding: 30rpx;
+  position: relative;
 }
 .content{
   background-color: #ecfef7;
@@ -24,6 +25,9 @@
   top:38rpx;
   left: 50%;
   transform: translateX(-50%);
+}
+.bg image{
+  width: 100%;
 }
 .tishiS{
   color: #71bcff;

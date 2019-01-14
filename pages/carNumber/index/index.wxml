@@ -1,0 +1,24 @@
+<!--pages/carNumber/index/index.wxml-->
+<view class='container'>
+  <view class='topImg'>
+    <image mode='widthFix' src='https://xiaocaonuoche.com/upload/bg_apply.png'></image>
+  </view>
+  <view class='contentBox'>
+
+
+    <view class='content'>
+      <view class='left'>
+        <image src="/images/car.png"></image>
+        <input placeholder='请输入车牌号' placeholder-style='' bindinput='phoneInput' type='number'></input>
+      </view>
+    </view>
+    
+    </view>
+
+  <view class='controller'>
+    <view class='price'>应付金额：
+      <text style='color:#01c12d'> {{price}}</text>
+    </view>
+    <view class='buy' bindtap='toBuy'>立刻申请</view>
+  </view>
+</view>
