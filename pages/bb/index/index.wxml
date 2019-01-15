@@ -1,0 +1,15 @@
+<!--pages/bb/index/index.wxml-->
+<view class='container'>
+ <view class='topImg'>
+        <image mode='widthFix' src='https://xiaocaonuoche.com/upload/bg_apply.png'></image>
+    </view>
+    <view class='contentBox'>
+       <view class='content'>
+      <view class='left'>
+        <image src="/images/phone.png"></image>
+        <input placeholder='请输入手机号码' placeholder-style='font-size:28rpx;' bindinput='phoneInput' type='number'></input>
+      </view>
+    </view>
+    </view>
+    <view class='getCode' bindtap='code'>绑定挪车码</view>
+</view>

@@ -3,6 +3,12 @@
 // not  a perfect program
 //but a practical  program
 var url = require("config.js");
+// 引入SDK核心类
+var QQMapWX = require('utils/qqmap-wx-jssdk.min.js');
+// 实例化API核心类
+var qqmapsdk = new QQMapWX({
+  key: 'XRWBZ-H7JLS-H37O7-6S45H-SEJRK-FJB7R' // 必填
+});
 App({
   onLaunch: function() {
     // 展示本地存储能力
@@ -82,6 +88,74 @@ App({
 
     // }
   },
+  getArea: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log("定位latitude：", res.latitude)
+        console.log("定位longitude：", res.longitude)
+        // 调用接口
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: function (res) {
+            console.log("定位：", res)
+            let address_info = res.result.ad_info //.address_component
+            let address = res.result.formatted_addresses.recommend
+            //.address_component
+            wx.setStorageSync('address_info', address_info);
+            wx.setStorageSync('address_address', address);
+            // wx.request({
+            //   url: 'https://lmbge.com/wxapi/jicai/quyu',
+            //   data: {
+            //     region_type: 3,
+            //     region_name: address_info.district
+            //   },
+            //   success: function (res) {
+            //     if (res.data.code == 0) {
+            //       wx.setStorageSync('region_id', res.data.data.region_id);
+            //     }
+            //   }
+            // })
+            // wx.request({
+            //   url: 'https://lmbge.com/wxapi/jicai/quyu',
+            //   data: {
+            //     region_type: 2,
+            //     region_name: address_info.city
+            //   },
+            //   success: function (res) {
+            //     if (res.data.code == 0) {
+            //       wx.setStorageSync('city_id', res.data.data.region_id);
+            //     }
+            //   }
+            // })
+            // wx.request({
+            //   url: 'https://lmbge.com/wxapi/jicai/quyu',
+            //   data: {
+            //     region_type: 1,
+            //     region_name: address_info.province
+            //   },
+            //   success: function (res) {
+            //     if (res.data.code == 0) {
+            //       wx.setStorageSync('province_id', res.data.data.region_id);
+            //     }
+            //   }
+            // })
+          },
+          fail: function (res) {
+            //console.log(res);
+          },
+          complete: function (res) {
+            //console.log(res);
+          }
+        });
+
+      }
+    })
+  },
   userLogin: function(user_name, avatar, weixin, callBack) {
     var that = this
     wx.request({
@@ -89,7 +163,8 @@ App({
       data: {
         user_name,
         avatar,
-        weixin
+        weixin,
+    
       },
       success: function(res) {
         console.log("返回用户数据", res.data.data)

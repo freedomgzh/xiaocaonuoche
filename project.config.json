@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -90,7 +90,14 @@
 				{
 					"id": -1,
 					"name": "wurao",
-					"pathName": "pages/quite/index/index"
+					"pathName": "pages/quite/index/index",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "boda",
+					"pathName": "pages/index/call/index",
+					"query": "id=21"
 				}
 			]
 		}

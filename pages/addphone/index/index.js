@@ -21,26 +21,26 @@ Page({
       return
     }
     if (this.checkPhone(that.data.mobile)) {
-      wx.showModal({
-        title: '提示',
-        content: '是否将手机号设置为默认',
-        cancelText: "否",//默认是“取消”
-        cancelColor: '',//取消文字的颜色
-        confirmText: "是",//默认是“确定”
-        confirmColor: 'green',//确定文字的颜色
-        success: function (res) {
-          if (res.cancel) {
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '是否将手机号设置为默认',
+      //   cancelText: "否",//默认是“取消”
+      //   cancelColor: '',//取消文字的颜色
+      //   confirmText: "是",//默认是“确定”
+      //   confirmColor: 'green',//确定文字的颜色
+      //   success: function (res) {
+      //     if (res.cancel) {
             //点击取消,默认隐藏弹框
             that.fuck(0)
-          } else {
+          // } else {
             //点击确定
-            that.fuck(1)
+            // that.fuck(1)
 
-          }
-        },
+          // }
+      //   },
 
 
-      })
+      // })
 
     }
   },
@@ -50,16 +50,22 @@ Page({
       data: {
         user_id: app.globalData.userId,
         mobile: this.data.mobile,
-        moren: moren
+        // moren: moren
       },
       success: (res) => {
         if (res.data.code == 0) {
+        
           var pages = getCurrentPages();//当前页面栈
           var beforePage = pages[pages.length - 2];//获取上一个页面实例对象
           var currPage = pages[pages.length - 1]; // 当前页面，若不对当前页面进行操作，可省去
           beforePage.changeData();//触发父页面中的方法
           wx.navigateBack({
             delta: 1
+          })
+        }else{
+          wx.showToast({
+            title: res.data.message,
+            icon:"none"
           })
         }
       }

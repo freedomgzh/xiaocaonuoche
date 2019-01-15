@@ -6,12 +6,19 @@
     "pages/mPhone/index/index",
     "pages/address/index/index"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "subPackages": [
     {
       "root": "pages/index/",
       "pages": [
         "exp/index",
-        "apply/index"
+        "apply/index",
+        "call/index",
+        "tocall/index"
       ]
     },
     {
@@ -63,9 +70,15 @@
       "pages": [
         "index/index"
       ]
-    } ,
+    },
     {
       "root": "pages/carNumber",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/bb",
       "pages": [
         "index/index"
       ]

@@ -4,12 +4,19 @@ var wxpay = require('../../../utils/pay.js');
 
 let app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
 num:1,
+    region: []
+
+  },
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   },
   getPrice:function(){
     wx.request({
@@ -95,6 +102,13 @@ num:1,
       })
       return
     }
+    if (this.data.region.length==0) {
+      wx.showToast({
+        title: '请选择城市',
+        icon: "none"
+      })
+      return
+    }
     var that =this
     wx.showLoading({
       title: '正在生成订单',
@@ -137,6 +151,11 @@ showError:function(){
         consignee: name,
         mobile: phone,
         address: address,
+        sheng:that.data.region[0],
+        shi: that.data.region[1],
+
+        qu: that.data.region[2],
+
         // qrcode_id: qrcode_id,
         content:"二维码挪车码*2",
         number:that.data.num

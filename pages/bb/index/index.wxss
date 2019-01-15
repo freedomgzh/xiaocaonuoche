@@ -1,0 +1,40 @@
+/* pages/bb/index/index.wxss */
+.topImg image{
+    width: 100%;
+}
+.contentBox{
+  padding: 0rpx 28rpx;
+  margin-top: 160rpx;
+  margin-bottom: 130rpx;
+}
+.content{
+  display: flex;
+  justify-content: space-between;
+   background-color: #eeeeee;
+   height: 70rpx;
+align-items: center;
+padding-left: 26rpx;
+border-radius: 15rpx;
+}
+.content image{
+  width: 24rpx;
+  height: 36rpx;
+}
+.content image{
+  vertical-align: middle;
+  margin-right: 40rpx;
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+.getCode{
+  height: 84rpx;
+  line-height: 84rpx;
+  color: #fff;
+  background-color: #01c12d;
+  margin-right: 28rpx;
+  margin-left: 28rpx;
+  text-align: center;
+  border-radius: 15rpx;
+}

@@ -54,7 +54,7 @@ pay: `${host}/wxpay`,
   jdmdr: `${host}/jdmdr`,
   xdmdr: `${host}/xdmdr`,
   gxmdr: `${host}/gxmdr`,
-
+  bdshouji: `${host}/bdshouji`,
  
 
 

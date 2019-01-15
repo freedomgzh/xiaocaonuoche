@@ -9,7 +9,7 @@
     <view class='content'>
       <view class='left'>
         <image src="/images/car.png"></image>
-        <input placeholder='请输入车牌号' placeholder-style='' bindinput='phoneInput' type='number'></input>
+        <input placeholder='请输入车牌号' placeholder-style='' bindinput='phoneInput' type=''></input>
       </view>
     </view>
     

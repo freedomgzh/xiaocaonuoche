@@ -21,18 +21,7 @@ Page({
     })
 this.getCode();
   },
-getCode:function(){
-  wx.request({
-    url: url.codeInfo,
-    data:{
-      id:app.globalData.userId
-    },
-    success:(res)=>{
-        console.log(res)
-    }
-  })
-  
-},
+
   confirm: function (e) {
     var that = this;
     var order_id = this.data.order_id; 
