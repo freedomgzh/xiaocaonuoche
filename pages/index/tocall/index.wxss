@@ -97,4 +97,27 @@ text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+   align-items: center;
+   padding: 0;
+   margin: 0;
+background-color: #ecf8ff;
+}
+button::after{ border: none; }
+.content_box{
+  display: flex;
+  justify-content: space-around;
+ margin-top: 170rpx;
+}
+.title{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.btn text{
+  width: 130rpx;
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
+.btn :nth-child(2) text{
+  width: 120rpx;
+  font-size: 28rpx;
 }

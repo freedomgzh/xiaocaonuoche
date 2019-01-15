@@ -4,16 +4,19 @@
   <!-- <view class='apply' bindtap='toApply'>申请邮寄</view>
   <view class='experience' bindtap='toEx'>线上体验</view> -->
   <view class='content'>
-    <view>联系车主</view>
-    <view>
+    <view class='title'>联系车主</view>
+    <view class='content_box'>
       <view class='btn'>
         <image src='/images/apply.png'></image>
         <text>申请挪车码</text>
       </view>
-      <view class='btn'>
-        <image src='/images/call.png'></image>
+      <!-- <view class='btn' bindtap='toCall'> -->
+      <button class='btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+           <image src='/images/call.png'></image>
         <text>匿名电话通知挪车</text>
-      </view>
+      </button>
+     
+      <!-- </view> -->
     </view>
   </view>
 </view>

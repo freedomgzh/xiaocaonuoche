@@ -55,9 +55,9 @@ pay: `${host}/wxpay`,
   xdmdr: `${host}/xdmdr`,
   gxmdr: `${host}/gxmdr`,
   bdshouji: `${host}/bdshouji`,
- 
+  wxphone: `${host}/wxphone`,
 
-
+  bindAxB: `${host}/bindAxB`,
 
   
 

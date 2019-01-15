@@ -92,7 +92,53 @@ Page({
   onShow: function () {
 
   },
+  getPhoneNumber: function (e) {
+    app.login()
 
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '未授权',
+        success: function (res) { }
+      })
+    } else {
+      wx.request({
+        url: url.wxphone,
+        data:{
+          encryptedData: e.detail.encryptedData,
+          iv: e.detail.iv,
+          weixin:app.globalData.code
+        },
+        success:(res)=>{
+          wx.setStorageSync("phone", res.phoneNumber)
+          that.getPhone(res.phoneNumber)
+        },
+      })
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '同意授权',
+        success: function (res) { }
+      })
+    }
+  },
+  getPhone: function (Amobile){
+    wx.request({
+      url: url.bindAxB,
+      data: {
+        Amobile: Amobile,
+        iv: e.detail.iv,
+        weixin: app.globalData.code
+      },
+      success: (res) => {
+        wx.setStorageSync("phone", res.phoneNumber)
+      },
+    })
+  },
   getUserInfo: function (e) {
     console.log("e", e)
     if (e.detail.userInfo) {
