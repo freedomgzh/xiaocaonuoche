@@ -19,7 +19,7 @@ Page({
       code:options.url,
       id:options.id
     })
-this.getCode();
+// this.getCode();
   },
 
   confirm: function (e) {

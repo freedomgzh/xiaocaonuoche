@@ -35,6 +35,9 @@ page{
   position: relative;
   top: 330rpx;
 }
+.bg image{
+  width: 100%;
+}
 .label{
   height: 82rpx;
   line-height: 82rpx;

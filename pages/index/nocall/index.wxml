@@ -1,4 +1,4 @@
-<!--pages/index/call/index.wxml-->
+<!--pages/index/nocall/index.wxml-->
 <view class="container">
   <image class='bg' mode='widthFix' src='https://xiaocaonuoche.com/upload/call_bg.png'></image>
   <!-- <view class='apply' bindtap='toApply'>申请邮寄</view>
@@ -11,7 +11,7 @@
         <text>申请挪车码</text>
       </view>
       <!-- <view class='btn' bindtap='toCall'> -->
-      <button class='btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <button class='btn' bindtap='tishi'>
            <image src='/images/call.png'></image>
         <text>匿名电话通知挪车</text>
       </button>
@@ -20,13 +20,13 @@
     </view>
   </view>
 </view>
-<view class="mask" wx:if="{{!hasUserInfo}}">
+<!-- <view class="mask" wx:if="{{!hasUserInfo}}"> -->
 
   <!-- <view class="mask" > -->
 
-  <view class='getuserInfo'>
+  <!-- <view class='getuserInfo'>
     <view class='info-title'>即将获取您的用户信息是否同意</view>
     <view class='tishi'>(如果拒绝可能会影响您的使用)</view>
     <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  </view>
-</view>
+  </view> -->
+<!-- </view> -->

@@ -14,27 +14,28 @@ Page({
     hasUserInfo: app.globalData.hasUserInfo,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     show: true,
-    phone:true,
+    phone: true,
 
   },
   //跳转申请
-  toApply: function () {
+  toApply: function() {
     wx.navigateTo({
       url: '../../index/apply/index',
     })
   },
   //跳转体验
-  toEx: function () {
+  toEx: function() {
     wx.navigateTo({
       url: '../../index/exp/index',
     })
   },
-  copy: function (e) {
+
+  copy: function(e) {
     var that = this;
     console.log(e)
     wx.setClipboardData({
       data: e.currentTarget.dataset.value,
-      success: function (res) {
+      success: function(res) {
         // self.setData({copyTip:true}),
         // wx.showModal({
         //   title: '提示',
@@ -50,22 +51,23 @@ Page({
       }
     });
   },
-  showDetails: function () {
+  showDetails: function() {
     this.setData({
       show: !this.data.show
     })
   },
-  onReady: function () {
+  onReady: function() {
 
   },
 
-  onLoad: function (options) {
-    var that = this;
-
-
+  onLoad: function(options) {
+var that =this;
+    that.setData({
+      mobile:options.mobile
+    })
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo']) { } else {
+        if (res.authSetting['scope.userInfo']) {} else {
           that.setData({
             hasUserInfo: false
           })
@@ -83,63 +85,83 @@ Page({
       console.log("没有userinfo，callback赋值");
       app.userInfoReadyCallback = (res, res1) => {
         console.log("getuserinfo，获取用户信息", res, "res1", res1);
-        app.userLogin(res.userInfo.nickName, res.userInfo.avatarUrl, res1.code, function () {
+        app.userLogin(res.userInfo.nickName, res.userInfo.avatarUrl, res1.code, function() {
           // that.getIndexList();
         });
       }
     }
   },
-  onShow: function () {
+  onShow: function() {
 
   },
-  getPhoneNumber: function (e) {
-    app.login()
+  getPhoneNumber: function(e) {
+    var that = this
 
+    wx.login({
+      success: res1 => {
+        console.log("res1", res1)
+        var that = this;
+        this.setData({
+          mobile: that.data.mobile,
+          code: res1.code
+        })
+        if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+          wx.showModal({
+            title: '提示',
+            showCancel: false,
+            content: '未授权',
+            success: function (res) { }
+          })
+        } else {
+
+
+          wx.request({
+            url: url.wxphone,
+            data: {
+              encryptedData: e.detail.encryptedData,
+              iv: e.detail.iv,
+              weixin: that.data.code
+            },
+            success: (res) => {
+              wx.setStorageSync("phone", res.phoneNumber)
+              console.log("res", res)
+              that.getPhone(res.data.phoneNumber, that)
+            },
+          })
+          wx.showModal({
+            title: '提示',
+            showCancel: false,
+            content: '同意授权',
+            success: function (res) { }
+          })
+        }
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    })
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
-    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '未授权',
-        success: function (res) { }
-      })
-    } else {
-      wx.request({
-        url: url.wxphone,
-        data:{
-          encryptedData: e.detail.encryptedData,
-          iv: e.detail.iv,
-          weixin:app.globalData.code
-        },
-        success:(res)=>{
-          wx.setStorageSync("phone", res.phoneNumber)
-          that.getPhone(res.phoneNumber)
-        },
-      })
-      wx.showModal({
-        title: '提示',
-        showCancel: false,
-        content: '同意授权',
-        success: function (res) { }
-      })
-    }
+
   },
-  getPhone: function (Amobile){
+  getPhone: function (Amobile, that,iv, code) {
+    console.log(Amobile)
     wx.request({
       url: url.bindAxB,
       data: {
         Amobile: Amobile,
-        iv: e.detail.iv,
-        weixin: app.globalData.code
+        Bmobile: that.data.mobile,
+     
       },
       success: (res) => {
         wx.setStorageSync("phone", res.phoneNumber)
+        console.log("1111",res)
+        wx.makePhoneCall({
+          phoneNumber:String(res.data),
+        })
       },
     })
   },
-  getUserInfo: function (e) {
+  getUserInfo: function(e) {
     console.log("e", e)
     if (e.detail.userInfo) {
       console.log("授权成功");

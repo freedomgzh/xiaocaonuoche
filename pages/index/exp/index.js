@@ -31,7 +31,7 @@ code:function(){
     url: url.getQRCode,
     data: {
       user_id: app.globalData.userId,
-      path: "pages/index/call/index",
+      path: "/pages/index/call/index",
       mobile: that.data.phone
     },
     success: (res) => {

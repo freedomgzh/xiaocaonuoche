@@ -29,9 +29,7 @@ App({
     wx.login({
       success: res1 => {
         console.log("res1", res1)
-        this.globalData.code = res1.code
         var userInfo = wx.getStorageSync("userInfo")
-        if(!userInfo)
         this.getUserInfo(res1);
 
         // 发送 res.code 到后台换取 openId, sessionKey, unionId

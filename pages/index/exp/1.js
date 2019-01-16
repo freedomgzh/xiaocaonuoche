@@ -1,4 +1,4 @@
-// pages/bb/index/index.js
+// pages/finish-details/index.js
 var url = require("../../../config.js");
 var util = require("../../../utils/util.js");
 var app = getApp()
@@ -11,55 +11,43 @@ Page({
   data: {
 
   },
-  //接口报错
-  showError: function () {
-    wx.showLoading({
-      title: '接口返回错误',
-      icon: "none"
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-        id:options.id
-      })
+    
   },
   phoneInput: function (e) {
     this.setData({
       phone: e.detail.value
     })
   },
-  code: function (id) {
-    var that = this;
+code:function(){
+  var that  =this;
 
-    if (that.checkPhone(that.data.phone)) {
-      wx.request({
-        url: url.bdshouji,
-        data: {
-          user_id: app.globalData.userId,
-          mobile: that.data.phone,
-          qrcodeid:that.data.id
-        },
-        success: (res) => {
-          console.log("erweima", res)
-          if (res.data.code == 0) {
-            console.log(res.data.data.id)
-            wx.showToast({
-              title: '绑定成功',
-              icon:"none"
-            })
-            wx.switchTab({
-              url: '/pages/tabbar/index/index?id=' + that.data.id ,
-            })
-          } else {
-            that.showError()
-          }
-        }
-      })
+  if (that.checkPhone(that.data.phone)){
+  wx.request({
+    url: url.getQRCode,
+    data: {
+      user_id: app.globalData.userId,
+      path: "pages/tabbar/index/call",
+      mobile: that.data.phone
+    },
+    success: (res) => {
+      console.log("erweima", res)
+      if (res.data.code == 0) {
+        console.log(res.data.data.id)
+        wx.navigateTo({
+          url: '/pages/poster/index/index?url='+res.data.data.url+ "&id=" + res.data.data.id ,
+        })
+      } else {
+        that.showError()
+      }
     }
-  },
+  })
+  }
+},
   //检查输入的手机号
   checkPhone: function (param) {
     var phone = util.regexConfig().phone;
@@ -79,7 +67,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**

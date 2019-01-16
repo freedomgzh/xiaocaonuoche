@@ -1,0 +1,103 @@
+{
+  "pages": [
+    "pages/tabbar/index/index",
+    "pages/tabbar/order/index",
+    "pages/tabbar/my/index",
+    "pages/mPhone/index/index",
+    "pages/address/index/index",
+    "pages/tabbar/index/call/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/index/",
+      "pages": [
+        "exp/index",
+        "apply/index"
+      ]
+    },
+    {
+      "root": "pages/order/",
+      "pages": [
+        "finish-details/index"
+      ]
+    },
+    {
+      "root": "pages/poster/",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/help/",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/renew",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/addphone",
+      "pages": [
+        "index/index",
+        "edit/index"
+      ]
+    },
+    {
+      "root": "pages/join",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/adddizhi",
+      "pages": [
+        "index/index",
+        "edit/index"
+      ]
+    },
+    {
+      "root": "pages/quite",
+      "pages": [
+        "index/index"
+      ]
+    },
+    {
+      "root": "pages/carNumber",
+      "pages": [
+        "index/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "#333",
+    "navigationBarTitleText": "小草挪车",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F2f2f2",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#02c12e",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/index/index",
+        "iconPath": "images/footer-icon-03.png",
+        "selectedIconPath": "images/footer-icon-03-active.png",
+        "text": "扫码挪车"
+      },
+      {
+        "pagePath": "pages/tabbar/my/index",
+        "iconPath": "images/footer-icon-04.png",
+        "selectedIconPath": "images/footer-icon-04-active.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

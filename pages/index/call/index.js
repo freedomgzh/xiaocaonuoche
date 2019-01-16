@@ -1,12 +1,13 @@
 // pages/index/call/index/index.js
 var url = require("../../../config.js")
+var app =getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    show:false
   },
 
   /**
@@ -16,9 +17,10 @@ Page({
     var id = options.id
 
     this.getCode(id)
-
+    app.login()
   },
   getCode: function (id) {
+    var that = this
     wx.request({
       url: url.codeInfo,
       data: {
@@ -30,12 +32,19 @@ Page({
           if (res.data.data.mobile == "") {
 
             wx.navigateTo({
-              url: '/pages/bb/index/index?id=' + id,
+              url: '/pages/bb/index/index?id=' + id , 
             })
-          } else {
+          } else if (res.data.data.mobile == "xdmdr"){
+
+          } else if (res.data.data.mobile == "jdmdr"){
+            wx.navigateTo({
+              url: '/pages/index/nocall/index?id=' + id,
+            })
+          }
+          else{
             console.log(111)
             wx.navigateTo({
-              url: '/pages/index/tocall/index?id=' + id,
+              url: '/pages/index/tocall/index?id=' + id + "&mobile=" + res.data.data.mobile,
             })
           }
         } else {
