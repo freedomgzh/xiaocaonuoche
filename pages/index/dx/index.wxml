@@ -1,0 +1,39 @@
+<!--pages/index/dx/index.wxml-->
+<view class='title'>车主已开启免打扰模式，请您输入一下信息待系统审核通过后，将以短信形式通知车主</view>
+<view class='container'>
+  <input placeholder='请输入您的姓名' bindinput='name'></input>
+  <input placeholder='请输入您的手机号码' bindinput='phone'></input>
+    <input placeholder='请输入您的车牌号码' bindinput='chepai'></input>
+
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+
+  <view class='listBox'>
+
+    <view class='listname'>您的位置：</view>
+      <view class="picker">
+        <view style='margin-right:10rpx;'>
+          {{region[0]}} {{region[1]}} {{region[2]}}
+        </view>
+        <image src='/images/arr.png'></image>
+      </view>
+
+  </view>
+              </picker>
+
+
+  <view class='listBoxs'>
+      <view class='border' bindtap='upImg'>
+          <image src='/images/pic.png' ></image>
+          <text>上传别车凭证</text>
+          <text>（最少一张）</text>
+      </view>
+      <view class='imgBox'>
+      <block wx:for="{{picURL}}">
+      <image mode='widthFix'  src='{{item}}'></image>
+      </block>
+      </view>
+  </view>
+
+
+  <view class="apply" bindtap='apply'>提交信息</view>
+</view>

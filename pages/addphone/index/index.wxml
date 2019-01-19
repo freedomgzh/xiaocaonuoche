@@ -1,5 +1,5 @@
 <!--pages/addphone/index/index.wxml-->
 <view class='container'>
-  <input bindinput='search' type='number'></input>
-  <view class='addPhone' bindtap='toAdd'>确定添加</view>
+  <input bindinput='search' type='number' placeholder='请输入手机号'></input>
+  <view class='addPhone' bindtap='toAdd' >确定添加</view>
 </view>

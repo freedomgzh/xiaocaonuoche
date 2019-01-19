@@ -1,7 +1,4 @@
-// pages/renew/index/index.js
-var url = require("../../../config.js")
-var wxPay = require("../../../utils/pay.js")
-var app  = getApp()
+// pages/index/xiugai/index.js
 Page({
 
   /**
@@ -10,34 +7,23 @@ Page({
   data: {
 
   },
-  getLocalTime: function (nS) {
-    return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
-  },
-//年费获取
-getNf:function(){
-  var that =this;
-  wx.request({
-    url: url.nianfei,
-    data:{
-      user_id:app.globalData.userId
-    },
-    success:(res)=>{
-      console.log(res)
-      this.setData({
-        nianfei:res.data.data.nianfei,
-        time: res.data.data.end_time? that.getLocalTime(res.data.data.end_time):"未开通服务"
-      })
-    }
-  })
-},
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNf()
+      this.setData({
+        mobile: options.mobile,
+        id:options.id
+      })
   },
-  payNow:function(){
-    wxPay.wxpay1(app, app.globalData.userId,this.data.nianfei, "/pages/tabbar/index/index")
+  toEx:function(){
+    wx,wx.navigateTo({
+      url: '/pages/change/index/index?mobile=' + this.data.mobile + "&id=" + this.data.id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

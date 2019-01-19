@@ -25,7 +25,8 @@ num:1,
         console.log(res)
         if(res.data.code==0){
           this.setData({
-            price: res.data.data
+            price: res.data.data,
+            prices: res.data.data
           })
         }else{
           wx.showToast({
@@ -38,22 +39,24 @@ num:1,
     })
   },
   increase:function(){
+    var that =this
     var num = this.data.num;
     num ++
     this.setData({
       num:num,
-      price: num * 18
+      prices: num * that.data.price
 
     })
   },
   reduce: function () {
+    var that =this
     var num = this.data.num;
     num--
     if(num == 0)
     return
     this.setData({
       num: num,
-      price:num *18
+      prices: num * that.data.price
     })
   },
   nameInput:function(e){
@@ -95,16 +98,17 @@ num:1,
     return
   }
 
-    if (!address || address.match(/^[ ]*$/)){
-      wx.showToast({
-        title: '请输入地址',
-        icon:"none"
-      })
-      return
-    }
+
     if (this.data.region.length==0) {
       wx.showToast({
         title: '请选择城市',
+        icon: "none"
+      })
+      return
+    }
+    if (!address || address.match(/^[ ]*$/)) {
+      wx.showToast({
+        title: '请输入地址',
         icon: "none"
       })
       return

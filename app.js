@@ -25,18 +25,18 @@ App({
     } else this.login();
   },
   // 登录
-  login: function() {
+  login: function(callback) {
     wx.login({
       success: res1 => {
         console.log("res1", res1)
         var userInfo = wx.getStorageSync("userInfo")
-        this.getUserInfo(res1);
+        this.getUserInfo(res1,callback);
 
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
   },
-  getUserInfo: function(res1) {
+  getUserInfo: function(res1,callback) {
     // var userInfo = wx.setStorageSync("userInfo",userInfo)
     // console.log(userInfo)
     // if (!userInfo) {
@@ -66,7 +66,7 @@ App({
                 // this.globalData.hasUserInfo = false;
 
               } else {
-                this.userLogin(res.userInfo.nickName, res.userInfo.avatarUrl, res1.code);
+                this.userLogin(res.userInfo.nickName, res.userInfo.avatarUrl, res1.code,callback);
               }
             }
           })
@@ -174,11 +174,18 @@ App({
         wx.setStorageSync("user_id", res.data.data.user_id)
         console.log("that.globalData", that.globalData)
         that.globalData.userId = res.data.data.user_id
-
+        console.log(callBack?"true":"false")
         if (callBack) callBack(res)
       }
     })
   },
+  // userInfoReadyCallback :res => {
+  //   console.log('userInfoReadyCallback: ', res);
+  //   console.log('获取用户信息成功');
+  //   this.setData({
+  //     userInfo: res
+  //   })
+  // },
   globalData: {
     userInfo: null,
     hasUserInfo:true

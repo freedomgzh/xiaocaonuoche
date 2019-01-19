@@ -16,16 +16,19 @@ Page({
   onLoad: function (options) {
     var id = options.id
     var that =this;
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) { } else {
-          that.setData({
-            hasUserInfo: false
-          })
-        }
-      }
-    })
+    var userInfo = wx.getStorageSync("userInfo")
+    
+    if (userInfo){
+      that.setData({
+        hasUserInfo: true
+      })
+      this.getCode(id)
 
+    }
+
+    this.setData({
+      id: options.id
+    })
     if (app.globalData.userInfo) {
       // 不显示权限
 
@@ -48,7 +51,8 @@ Page({
     wx.request({
       url: url.codeInfo,
       data: {
-        id: id
+        id: id,
+        user_id:app.globalData.userId
       },
       success: (res) => {
         console.log(res)
@@ -58,11 +62,18 @@ Page({
             wx.navigateTo({
               url: '/pages/bb/index/index?id=' + id , 
             })
-          } else if (res.data.data.mobile == "xdmdr"){
-
-          } else if (res.data.data.mobile == "jdmdr"){
+          } else if (res.data.data.mobile1 == "xdmdr"){
+            wx.navigateTo({
+              url: '/pages/index/dx/index?id=' + id,
+            })
+          } else if (res.data.data.mobile1 == "jdmdr"){
             wx.navigateTo({
               url: '/pages/index/nocall/index?id=' + id,
+            })
+          }
+          else if (res.data.data.mobile1 == "myself") {
+            wx.navigateTo({
+              url: '/pages/change/index/index?id=' + id  + "&mobile=" + res.data.data.mobile,
             })
           }
           else{
@@ -83,13 +94,18 @@ Page({
   },
   getUserInfo: function (e) {
     console.log("e", e)
+    var that =this
     if (e.detail.userInfo) {
       console.log("授权成功");
       app.globalData.userInfo = e.detail.userInfo;
+      var userInfo = e.detail.userInfo;
       wx.setStorageSync("userInfo", app.globalData.userInfo)
 
-      // app.userLogin(e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl, e.detail.code);
-      app.login()
+
+        app.login(function () {
+          console.log(2222)
+          that.getCode(that.data.id)
+        });
       wx.showLoading({
         title: '加载中',
       })

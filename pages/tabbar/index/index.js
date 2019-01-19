@@ -49,6 +49,7 @@ Page({
       }
     });
   },
+
   showDetails: function () {
     this.setData({
       show: !this.data.show

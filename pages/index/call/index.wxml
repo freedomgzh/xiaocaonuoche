@@ -1,6 +1,7 @@
 <!--pages/index/call/index/index.wxml-->
+<image  class='bg'  mode='widthFix' src='https://xiaocaonuoche.com/upload/call_bg.png'></image>
 
-  <view class='getuserInfo'>
+  <view class='getuserInfo' hidden='{{hasUserInfo}}'>
     <view class='info-title'>即将获取您的用户信息是否同意</view>
     <view class='tishi'>(如果拒绝可能会影响您的使用)</view>
     <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

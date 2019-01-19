@@ -60,7 +60,7 @@
 
   <view class='controller'>
     <view class='price'>应付金额：
-      <text style='color:#01c12d'> {{price}}</text>
+      <text style='color:#01c12d'> {{prices}}</text>
     </view>
     <view class='buy' bindtap='toBuy'>立刻申请</view>
   </view>

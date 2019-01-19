@@ -1,0 +1,37 @@
+<!--pages/change/index/index.wxml-->
+<view class='container'>
+  <view class='topImg'>
+    <image mode='widthFix' src='https://xiaocaonuoche.com/upload/bg_apply.png'></image>
+  </view>
+  <view class='content'>
+    <view class='title'>您已开启此挪车码</view>
+    <view class='titlet'>如需修改信息请点击下方修改按钮重新绑定信息，该挪车码已绑定下列信息：</view>
+
+    <view class='content_box'>
+      <view class='img'>
+        <!-- <image src='https://xiaocaonuoche.com/upload/touxiang.png'></image> -->
+        <input value='{{mobile}}' bindinput='phoneInput'></input>
+      </view>
+
+    </view>
+
+  </view>
+  <view class='experience' bindtap='xiugai'>立即修改</view>
+  <view class='bottom'>
+    <view bindtap='wurao'>
+      <image src='/images/1.png'></image>
+<text>勿扰模式</text>
+    </view>
+    <view bindtap='xufei'>
+      <image src='/images/2.png'></image>
+<text>二维码续费</text>
+
+    </view>
+    <view bindtap='shenqing'>
+      <image src='/images/3.png'></image>
+<text>申请二维码</text>
+
+
+    </view>
+  </view>
+</view>

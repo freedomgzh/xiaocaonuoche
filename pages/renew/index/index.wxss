@@ -24,3 +24,12 @@
   border-radius: 15rpx;
   color: #fff;
 }
+.time{
+  width: 100%;
+  position: absolute;
+  top: 10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28rpx;
+  text-align: center;
+}

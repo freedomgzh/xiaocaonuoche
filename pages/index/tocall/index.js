@@ -65,6 +65,7 @@ var that =this;
     that.setData({
       mobile:options.mobile
     })
+
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {} else {
@@ -97,14 +98,7 @@ var that =this;
   getPhoneNumber: function(e) {
     var that = this
 
-    wx.login({
-      success: res1 => {
-        console.log("res1", res1)
-        var that = this;
-        this.setData({
-          mobile: that.data.mobile,
-          code: res1.code
-        })
+
         if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
           wx.showModal({
             title: '提示',
@@ -113,21 +107,44 @@ var that =this;
             success: function (res) { }
           })
         } else {
-
-
-          wx.request({
-            url: url.wxphone,
-            data: {
-              encryptedData: e.detail.encryptedData,
-              iv: e.detail.iv,
-              weixin: that.data.code
-            },
-            success: (res) => {
-              wx.setStorageSync("phone", res.phoneNumber)
-              console.log("res", res)
-              that.getPhone(res.data.phoneNumber, that)
-            },
+          wx.login({
+            success: res1 => {
+              console.log("res1", res1)
+              var that = this;
+              this.setData({
+                mobile: that.data.mobile,
+                code: res1.code
+              })
+              wx.checkSession({
+                success: function (res) {
+                  console.log("处于登录态");
+                  wx.request({
+                    url: url.wxphone ,
+                    // + "?encryptedData=" + e.detail.encryptedData + "&iv=" +e.detail.iv + "&weixin=" + that.data.code,
+                    data: {
+                      encryptedData: e.detail.encryptedData,
+                      iv: e.detail.iv,
+                      weixin: that.data.code
+                    },
+                    header: {
+                      'content-type': 'application/json'
+                    },
+                    success: (res) => {
+                      wx.setStorageSync("phone", res.phoneNumber)
+                      console.log("res", res)
+                      that.getPhone(res.data.phoneNumber, that)
+                    },
+                  })
+                },
+                fail: function (res) {
+                  console.log("需要重新登录");
+                  // 　　　　　　wx.login({})
+                }
+              })
+            }
           })
+
+
           wx.showModal({
             title: '提示',
             showCancel: false,
@@ -136,8 +153,7 @@ var that =this;
           })
         }
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)

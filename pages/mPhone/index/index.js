@@ -9,6 +9,22 @@ Page({
   data: {
 
   },
+  mrshouji:function(id,phone){
+    var that = this;
+    wx.request({
+      url: url.mrshouji,
+      data:{
+          user_id:app.globalData.userId,
+          mobile_id:id,
+      },
+      success:function(res){
+        console.log(res)
+        wx.showToast({
+          title: '设置成功',
+        })
+      },
+    })
+  },
   changeData: function () {
 
     var options = {  }
@@ -60,6 +76,7 @@ Page({
   selectTap: function (e) {
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
+    var id = e.currentTarget.dataset.id;
 
     if (index !== "" && index != null) {
       this.noSelect();
@@ -68,7 +85,7 @@ Page({
       this.setData({
         list: this.data.list,
       })
-
+      this.mrshouji(id)
     }
 
   },

@@ -18,7 +18,8 @@
         "exp/index",
         "apply/index",
         "call/index",
-        "tocall/index"
+        "tocall/index",
+        "dx/index"
       ]
     },
     {
@@ -45,6 +46,12 @@
         "index/index"
       ]
     },
+        {
+          "root": "pages/change",
+          "pages": [
+            "index/index"
+          ]
+        },
     {
       "root": "pages/addphone",
       "pages": [

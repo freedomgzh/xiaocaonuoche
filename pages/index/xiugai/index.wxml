@@ -1,0 +1,17 @@
+<!--pages/index/xiugai/index.wxml-->
+<view class="container">
+<!-- <image  class='bg'  mode='widthFix' src='https://xiaocaonuoche.com/upload/bg.png'></image> -->
+ <view class='content'>
+    <view class='title'>您已开启此挪车码</view>
+        <view class='titlet'>如需修改信息请点击下方修改按钮重新绑定信息，该挪车码已绑定下列信息：</view>
+
+    <view class='content_box'>
+      <view class='img' >
+        <image src='https://xiaocaonuoche.com/upload/touxiang.png'></image>
+        <text>{{mobile}}</text>
+      </view>
+ 
+    </view>
+  </view>  <view class='experience' bindtap='toEx'>立即修改</view>
+
+</view>
