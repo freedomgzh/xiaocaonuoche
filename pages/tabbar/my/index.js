@@ -6,11 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // userInfo: {
-    //   avatarUrl: app.globalData.userInfo.avatarUrl,
-    //   nickName: app.globalData.userInfo.nickName,
-    //   show:false,
-    // },
+
     menulist: [
       {
         imgPath: '/images/order.png',
@@ -69,10 +65,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var userInfo = wx.getStorageSync("userInfo")
-    that.setData({
-      userInfo: userInfo
-    })
+    that.getfuck();
+console.log(11111)
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
@@ -117,7 +111,25 @@ Page({
   onReady: function () {
 
   },
+  getfuck:function(){
+  var that =this;
+  console.log(2222)
+  wx.request({
+    url: 'https://xiaocaonuoche.com/wxapi/nuoche/userinfo',
+    data:{
+      user_id: app.globalData.userId
+    },
+    success:(res)=>{
+      if(res.data.code==0){
+        that.setData({
+          types:res.data.data
+        })
+        console.log("1223",that.data.types)
 
+      }
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面显示
    */

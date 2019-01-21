@@ -183,9 +183,29 @@ showError:function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getPrice()
+    this.getPrice();
+    this.moren();
   },
-
+moren:function(){
+  wx.request({
+    url: url.morendizhi,
+    data:{
+      user_id:app.globalData.userId
+    },
+    success:(res)=>{
+      console.log("moren",res)
+      if(res.data.data){
+      this.setData({
+        address:res.data.data
+      })
+      }else{
+        this.setData({
+          address: ""
+        })
+      }
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

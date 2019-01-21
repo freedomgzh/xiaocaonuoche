@@ -1,5 +1,6 @@
 <!--pages/my/index.wxml-->
 <!--index.wxml-->
+
 <view class="container">
   <view class='topImg'>
     <image mode='widthFix' src='https://xiaocaonuoche.com/upload/mine_bg.png'></image>
@@ -11,47 +12,51 @@
       <view class='userinfo-name'>
         <view class="userinfo-nickname">{{userInfo.nickName}}</view>
         <view class='toJoin'>
-          <view class='JoinBtn' bindtap='join'>代理商申请</view>
+          <view class='JoinBtn' bindtap='join'>代理商申请
+          </view>
         </view>
         <view>
         </view>
 
       </view>
-      <view class='Tips'>小草扫码挪车祝您：安全出行，平安到家！</view>
+      <view class='zt'>{{types.bangding?"已绑定于:":""}} {{types.bangding?types.end_time:''}}</view>
+
+      <view class='Tips'>小草扫码挪车祝您：安全出行，平安到家！
+      </view>
 
     </view>
   </view>
   <view class='boxs'>
 
     <view class='menu'>
-    <block  wx:for="{{menulist}}">
-      <navigator url='{{item.url}}'>
-        <view class='list'>
-          <view class='left'>
-            <image src='{{item.imgPath}}'></image>
-            <text>{{item.text}}</text>
-          </view>
-          <image src='/images/arr.png'></image>
+      <block wx:for="{{menulist}}">
+        <navigator url='{{item.url}}'>
+          <view class='list'>
+            <view class='left'>
+              <image src='{{item.imgPath}}'></image>
+              <text>{{item.text}}</text>
+            </view>
+            <image src='/images/arr.png'></image>
 
-        </view>
-      </navigator>
-    </block>
+          </view>
+        </navigator>
+      </block>
 
     </view>
     <view class='oMenu'>
-        <block  wx:for="{{list}}">
-      <navigator url='{{item.url}}'>
+      <block wx:for="{{list}}">
+        <navigator url='{{item.url}}'>
 
-      <view class='list'  bindtap='{{!item.url?"makePhone":""}}'>
-        <view class='left'>
-          <image src='{{item.imgPath}}'></image>
-          <text>{{item.text}}</text>
-        </view>
-        <image src='/images/arr.png'></image>
-      </view>
-            </navigator>
+          <view class='list' bindtap='{{!item.url?"makePhone":""}}'>
+            <view class='left'>
+              <image src='{{item.imgPath}}'></image>
+              <text>{{item.text}}</text>
+            </view>
+            <image src='/images/arr.png'></image>
+          </view>
+        </navigator>
 
-          </block>
+      </block>
 
     </view>
   </view>

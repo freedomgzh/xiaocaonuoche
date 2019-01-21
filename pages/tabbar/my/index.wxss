@@ -26,7 +26,7 @@ page {
 .userinfo {
   align-items: center;
   background: #fff;
-    height: 238rpx;
+    height: 260rpx;
   border-radius: 15rpx;
 }
 
@@ -81,6 +81,12 @@ color: #fff;
 .Tips{
   position: relative;
   top: 135rpx;
+  font-size: 22rpx;
+  text-align: center;
+}
+.zt{
+    position: relative;
+  top: 125rpx;
   font-size: 22rpx;
   text-align: center;
 }
