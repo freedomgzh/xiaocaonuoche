@@ -196,7 +196,7 @@ moren:function(){
       console.log("moren",res)
       if(res.data.data){
       this.setData({
-        address:res.data.data
+        address:res.data.data[0].address
       })
       }else{
         this.setData({

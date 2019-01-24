@@ -165,6 +165,9 @@ guan:function(){
        success:(res)=>{
          if (res.cancel) {
            //点击取消,默认隐藏弹框
+           that.setData({
+             ra:false
+           })
          } else {
            //点击确定
             wx.navigateTo({

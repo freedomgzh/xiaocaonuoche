@@ -9,7 +9,11 @@ Page({
   data: {
     show:false
   },
-
+  // changeData:function(){
+  //   wx.switchTab({
+  //     url: '/pages/tabbar/index/index',
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -17,7 +21,7 @@ Page({
     var id = options.id
     var that =this;
     var userInfo = wx.getStorageSync("userInfo")
-    
+
     if (userInfo){
       that.setData({
         hasUserInfo: true
@@ -91,6 +95,16 @@ Page({
       }
     })
 
+  },
+  toone:function(){
+    wx.switchTab({
+      url: '/pages/tabbar/index/index',
+    })
+  },
+  tosecond: function () {
+    wx.switchTab({
+      url: '/pages/tabbar/my/index',
+    })
   },
   getUserInfo: function (e) {
     console.log("e", e)

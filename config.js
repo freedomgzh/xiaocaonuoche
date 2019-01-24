@@ -45,13 +45,13 @@ pay: `${host}/wxpay`,
   bdshouji: `${host}/bdshouji`,
   wxphone: `${host}/wxphone`,
 
-  bindAxB: `${host}/bindAxB`,
+  bindAxn: `${host}/bindAxn`,
   bindAxB: `${host}/bindAxB`,
 
   tongzhi: `${host}/tongzhi`,
   xgshouji: `${host}/xgshouji`,
   mrshouji: `${host}/mrshouji`,
-
+  xgchepai: `${host}/xgchepai`,
 };
 
 module.exports = config

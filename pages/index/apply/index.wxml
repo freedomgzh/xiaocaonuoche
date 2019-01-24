@@ -50,7 +50,7 @@
     <view class='title'>详细地址</view>
     <view class="tex_con">
 
-      <textarea placeholder='请输入详细地址' bindinput='addressInput' value='{{address[0].address}}'></textarea>
+      <textarea placeholder='请输入详细地址' bindinput='addressInput' value='{{address}}'></textarea>
     </view>
     <view class='zhushi'>注: 收到挪车码后请您先扫码进行绑定车辆和手机信息，绑定后方可使用。如有疑问请查看
       <text bindtap='toHelp'>使用帮助</text>

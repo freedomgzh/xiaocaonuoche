@@ -43,13 +43,14 @@ Page({
   xiugai:function(){
     var that = this
     var phone = this.data.phone;
-    if (that.checkPhone(phone)){
+    // if (that.checkPhone(phone)){
 
     wx.request({
-      url: url.xgshouji,
+      url: url.xgchepai,
       data:{
         user_id:app.globalData.userId,
-        mobile:that.data.phone
+        chepaihao:that.data.phone,
+        qrcode_id:that.data.id
       },
       success:(res)=>{
         console.log(res)
@@ -61,7 +62,7 @@ Page({
         })
       }
     })
-    }
+    // }
 
   },
   wurao:function(){

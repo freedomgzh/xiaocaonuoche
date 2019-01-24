@@ -9,11 +9,14 @@
 
     <view class='content_box'>
       <view class='img'>
-        <!-- <image src='https://xiaocaonuoche.com/upload/touxiang.png'></image> -->
-        <input value='{{mobile}}' bindinput='phoneInput'></input>
+        <view >{{mobile}}</view>
       </view>
-
+             <view class='img'>
+        <input value='{{}}' bindinput='phoneInput' placeholder='请输入车牌号'></input>
+      </view>
     </view>
+ 
+
 
   </view>
   <view class='experience' bindtap='xiugai'>立即修改</view>

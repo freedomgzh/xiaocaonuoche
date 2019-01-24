@@ -1,5 +1,6 @@
 // pages/my/index.js
 const app= getApp();
+var url =require("../../../config.js")
 Page({
 
   /**
@@ -55,10 +56,30 @@ Page({
       url: '/pages/join/index/index',
     })
   },
+
   makePhone:function(){
-    wx.makePhoneCall({
-      phoneNumber: '17169661011',
+    console.log(url)
+    wx.request({
+      url: url.bindAxn,
+      data: {
+        Amobile: "17685706085",
+
+      },
+      success: (res) => {
+        wx.setStorageSync("phone", res.phoneNumber)
+        console.log("1111", res)
+        if (res.statusCode == 200) {
+          wx.makePhoneCall({
+            phoneNumber: String(res.data),
+          })
+        } else {
+          wx.showToast({
+            title: '号码已用完',
+          })
+        }
+      },
     })
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -66,6 +87,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.getfuck();
+
 console.log(11111)
     wx.getSetting({
       success: function (res) {
@@ -125,7 +147,13 @@ console.log(11111)
           types:res.data.data
         })
         console.log("1223",that.data.types)
-
+        if (res.data.data.end_time==""){
+          that.data.menulist.splice(1,1)
+          that.data.menulist.splice(3,1)
+          that.setData({
+            menulist:that.data.menulist
+          })
+        }
       }
     }
   })

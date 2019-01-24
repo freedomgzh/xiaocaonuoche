@@ -1,6 +1,15 @@
 <!--pages/index/call/index/index.wxml-->
-<image  class='bg'  mode='widthFix' src='https://xiaocaonuoche.com/upload/call_bg.png'></image>
-
+<image  class='bg'  mode='widthFix' src='https://xiaocaonuoche.com/upload/bg.png'></image>
+    <view class='myTab'>
+        <view  bindtap='toone'>
+            <image src='/images/footer-icon-03.png' mode='widthFix'></image>
+            <text>扫码挪车</text>
+        </view>
+                <view bindtap='tosecond'>
+            <image src='/images/footer-icon-04.png' mode='widthFix'></image>
+            <text>个人中心</text>
+        </view>
+    </view>
   <view class='getuserInfo' hidden='{{hasUserInfo}}'>
     <view class='info-title'>即将获取您的用户信息是否同意</view>
     <view class='tishi'>(如果拒绝可能会影响您的使用)</view>

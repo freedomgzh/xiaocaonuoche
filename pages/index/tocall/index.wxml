@@ -11,10 +11,10 @@
         <text>申请挪车码</text>
       </view>
       <!-- <view class='btn' bindtap='toCall'> -->
-      <button class='btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <view class='btn'  bindtap="getPhoneNumber">
            <image src='/images/call.png'></image>
         <text>匿名电话通知挪车</text>
-      </button>
+      </view>
      
       <!-- </view> -->
     </view>

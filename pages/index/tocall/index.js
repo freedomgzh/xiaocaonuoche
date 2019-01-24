@@ -95,85 +95,110 @@ var that =this;
   onShow: function() {
 
   },
+
+  getCode:function(){
+    wx.login({
+      success: res1 => {
+        console.log("res1", res1)
+        var that = this;
+        this.setData({
+          mobile: that.data.mobile,
+          code: res1.code
+        })
+      }
+    })
+  },
   getPhoneNumber: function(e) {
     var that = this
+    this.getPhone(that)
+        // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+        //   wx.showModal({
+        //     title: '提示',
+        //     showCancel: false,
+        //     content: '未授权',
+        //     success: function (res) { }
+        //   })
+        // } else {
+
+        //   // console.log(e.detail.encryptedData, e.detail.iv, that.data.code)
+        //   // return
+        //   var phone = wx.getStorageSync("phone")
+
+        //   if (phone) {
+        //     that.getPhone(phone, that)
+        //     return;
+        //   }
+        //   wx.checkSession({
+        //     success: function (res) {
+        //       console.log("处于登录态");
+        //       wx.request({
+        //         url: url.wxphone + "?encryptedData=" + e.detail.encryptedData + "&iv=" + encodeURIComponent(e.detail.iv) + "&weixin=" + that.data.code,
+        //         // data: {
+        //         //   encryptedData: e.detail.encryptedData,
+        //         //   iv: e.detail.iv,
+        //         //   weixin: that.data.code
+        //         // },
+        //         header: {
+        //           'content-type': 'application/json'
+        //         },
+        //         success: (res) => {
+        //           console.log(res)
+        //           if (res.statusCode == 200) {
+        //             wx.setStorageSync("phone", res.phoneNumber)
+        //             console.log("res", res)
+        //           } else {
+        //             wx.showToast({
+        //               title: '网络故障请重新拨打',
+        //             })
+        //             return
+        //           }
+
+        //           that.getPhone(phone, that)
+        //         },
+        //       })
+        //     },
+        //     fail: function (res) {
+        //       console.log("需要重新登录");
+        //       // 　　　　　　wx.login({})
+        //     }
+        //   })
 
 
-        if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
-          wx.showModal({
-            title: '提示',
-            showCancel: false,
-            content: '未授权',
-            success: function (res) { }
-          })
-        } else {
-          wx.login({
-            success: res1 => {
-              console.log("res1", res1)
-              var that = this;
-              this.setData({
-                mobile: that.data.mobile,
-                code: res1.code
-              })
-              wx.checkSession({
-                success: function (res) {
-                  console.log("处于登录态");
-                  wx.request({
-                    url: url.wxphone ,
-                    // + "?encryptedData=" + e.detail.encryptedData + "&iv=" +e.detail.iv + "&weixin=" + that.data.code,
-                    data: {
-                      encryptedData: e.detail.encryptedData,
-                      iv: e.detail.iv,
-                      weixin: that.data.code
-                    },
-                    header: {
-                      'content-type': 'application/json'
-                    },
-                    success: (res) => {
-                      wx.setStorageSync("phone", res.phoneNumber)
-                      console.log("res", res)
-                      that.getPhone(res.data.phoneNumber, that)
-                    },
-                  })
-                },
-                fail: function (res) {
-                  console.log("需要重新登录");
-                  // 　　　　　　wx.login({})
-                }
-              })
-            }
-          })
 
+        //   wx.showModal({
+        //     title: '提示',
+        //     showCancel: false,
+        //     content: '同意授权',
+        //     success: function (res) { }
+        //   })
+        // }
 
-          wx.showModal({
-            title: '提示',
-            showCancel: false,
-            content: '同意授权',
-            success: function (res) { }
-          })
-        }
+     
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
 
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-
+    // console.log(e.detail.errMsg)
+    // console.log(e.detail.iv)
+    // console.log(e.detail.encryptedData)
   },
-  getPhone: function (Amobile, that,iv, code) {
-    console.log(Amobile)
+  getPhone: function (that) {
     wx.request({
-      url: url.bindAxB,
+      url: url.bindAxn,
       data: {
-        Amobile: Amobile,
-        Bmobile: that.data.mobile,
+        Amobile: that.data.mobile,
      
       },
       success: (res) => {
         wx.setStorageSync("phone", res.phoneNumber)
         console.log("1111",res)
+        if (res.statusCode==200){
         wx.makePhoneCall({
           phoneNumber:String(res.data),
         })
+        }else{
+          wx.showToast({
+            title: '号码已用完',
+          })
+        }
       },
     })
   },

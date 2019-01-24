@@ -86,3 +86,22 @@ border-radius: 15rpx
     background: rgba(255, 255, 255, 0.4);
 
 }
+.myTab{
+  position: fixed;
+  bottom: 0rpx;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 22rpx;
+  color: #707070;
+}
+.myTab image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.myTab view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
