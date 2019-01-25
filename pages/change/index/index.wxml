@@ -12,14 +12,14 @@
         <view >{{mobile}}</view>
       </view>
              <view class='img'>
-        <input value='{{}}' bindinput='phoneInput' placeholder='请输入车牌号'></input>
+        <input value='{{phone}}' bindinput='phoneInput' placeholder='请输入车牌号'></input>
       </view>
     </view>
  
 
 
   </view>
-  <view class='experience' bindtap='xiugai'>立即修改</view>
+  <view class='experience' bindtap='xiugai'>绑定车牌号</view>
   <view class='bottom'>
     <view bindtap='wurao'>
       <image src='/images/1.png'></image>

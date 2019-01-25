@@ -77,7 +77,7 @@ Page({
           }
           else if (res.data.data.mobile1 == "myself") {
             wx.navigateTo({
-              url: '/pages/change/index/index?id=' + id  + "&mobile=" + res.data.data.mobile,
+              url: '/pages/change/index/index?id=' + id  + "&mobile=" + res.data.data.mobile + "&chepai=" + res.data.data.chepaihao,
             })
           }
           else{

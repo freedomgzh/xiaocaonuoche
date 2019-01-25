@@ -110,7 +110,15 @@ var that =this;
   },
   getPhoneNumber: function(e) {
     var that = this
-    this.getPhone(that)
+              wx.showModal({
+            title: '提示',
+            showCancel: false,
+            content: '系统将以匿名电话的方式通知车主',
+            success: function (res) {
+              that.getPhone(that)
+
+             }
+          })
         // if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
         //   wx.showModal({
         //     title: '提示',

@@ -15,9 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
-      mobile: options.mobile,
-      id: options.id
+      phone: options.chepai,
+      id: options.id,
+      mobile: options.mobile
     })
   },
   //检查输入的手机号
@@ -40,11 +42,19 @@ Page({
       phone: e.detail.value
     })
   },
+  isVehicleNumber: function (vehicleNumber) {
+    var result = false;
+    result = /^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/.test(vehicleNumber);
+
+      console.log(vehicleNumber)
+
+      console.log(result)
+
+  },
   xiugai:function(){
     var that = this
     var phone = this.data.phone;
     // if (that.checkPhone(phone)){
-
     wx.request({
       url: url.xgchepai,
       data:{

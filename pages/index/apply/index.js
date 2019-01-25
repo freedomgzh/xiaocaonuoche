@@ -161,7 +161,7 @@ showError:function(){
         qu: that.data.region[2],
 
         // qrcode_id: qrcode_id,
-        content:"二维码挪车码*2",
+        content:"二维码挪车码",
         number:that.data.num
       },
       success: function (res) {
@@ -194,7 +194,7 @@ moren:function(){
     },
     success:(res)=>{
       console.log("moren",res)
-      if(res.data.data){
+      if(res.data.data.length){
       this.setData({
         address:res.data.data[0].address
       })
