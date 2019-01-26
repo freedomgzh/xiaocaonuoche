@@ -62,9 +62,9 @@ Page({
         console.log(res)
         if (res.data.code == 0) {
           if (res.data.data.mobile == "") {
-
+              
             wx.navigateTo({
-              url: '/pages/bb/index/index?id=' + id , 
+              url: '/pages/bb/index/index?id=' + id  +  "&bangding=" + res.data.data.bangding, 
             })
           } else if (res.data.data.mobile1 == "xdmdr"){
             wx.navigateTo({

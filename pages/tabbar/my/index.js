@@ -86,7 +86,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    that.getfuck();
 
 console.log(11111)
     wx.getSetting({
@@ -147,7 +146,7 @@ console.log(11111)
           types:res.data.data
         })
         console.log("1223",that.data.types)
-        if (res.data.data.end_time==""){
+        if (!res.data.data.bangding  && that.data.menulist.length==5){
           that.data.menulist.splice(1,1)
           that.data.menulist.splice(3,1)
           that.setData({
@@ -162,6 +161,7 @@ console.log(11111)
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getfuck();
 
   },
 

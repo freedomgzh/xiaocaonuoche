@@ -22,9 +22,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-        id:options.id
-      })
+    this.setData({
+      id: options.id,
+      bangding: Number(options.bangding)
+    })
+    console.log(options)
   },
   phoneInput: function (e) {
     this.setData({
@@ -33,14 +35,52 @@ Page({
   },
   code: function (id) {
     var that = this;
+    if (that.data.bangding) {
+      wx.showModal({
+        title: '提示',
+        content: '您已绑定过二维码，如需再次绑定请先解绑',
+        showCancel: true,//是否显示取消按钮
+        cancelText: "暂不",//默认是“取消”
+        confirmText: "解绑",//默认是“确定”
+        success: function (res) {
+          if (res.cancel) {
+            //点击取消,默认隐藏弹框
+            return false
+          } else {
+            //点击确定
+            wx.request({
+              url: url.jiebang,
+              data:{
+                user_id:app.globalData.userId
+              },
+              success:(res)=>{
+                wx.showToast({
+                  title: '解绑成功，请重新绑定',
+                  icon:"none",
+                  duration:2000
+                })
+              }
+            })
+            that.setData({
+              bangding:0
+            })
+            return false
+          }
+        },
+        fail: function (res) { },//接口调用失败的回调函数
+        complete: function (res) { 
+        },//接口调用结束的回调函数（调用成功、失败都会执行）
 
+      })
+      return
+    }
     if (that.checkPhone(that.data.phone)) {
       wx.request({
         url: url.bdshouji,
         data: {
           user_id: app.globalData.userId,
           mobile: that.data.phone,
-          qrcodeid:that.data.id
+          qrcodeid: that.data.id
         },
         success: (res) => {
           console.log("erweima", res)
@@ -48,13 +88,15 @@ Page({
             console.log(res.data.data.id)
             wx.showToast({
               title: '绑定成功',
-              icon:"none"
+              icon: "none"
             })
             wx.switchTab({
-              url: '/pages/tabbar/index/index?id=' + that.data.id ,
+              url: '/pages/tabbar/index/index?id=' + that.data.id,
             })
           } else {
-            that.showError()
+            wx.showToast({
+              title: res.data.data.message,
+            })
           }
         }
       })

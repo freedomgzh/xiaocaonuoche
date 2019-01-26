@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-<image  class='bg'  mode='widthFix' src='https://xiaocaonuoche.com/upload/bg.png'></image>
+<image  class='bg'  mode='widthFix' src='https://xiaocaonuoche.com/upload/bg1.png'></image>
   <view class='apply' bindtap='toApply'>申请邮寄</view>
   <view class='experience' bindtap='toEx'>线上体验</view>
 

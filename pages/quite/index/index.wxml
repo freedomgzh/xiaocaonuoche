@@ -4,7 +4,7 @@
     <view>绝对免打扰</view>
     <switch checked="{{ab}}" bindchange="switch1Change" />
   </view>
-  <view class='text1'>注：开启绝对免打扰，阻断次途径所有来电，需要尊驾手动开启或关闭</view>
+  <view class='text1'>注：开启绝对免打扰，阻断此途径所有来电，需要尊驾手动开启或关闭</view>
   <view class='d-h'>
     <view> 相对免打扰</view>
     <switch checked="{{ra}}" bindchange="switch2Change" />

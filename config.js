@@ -47,6 +47,7 @@ pay: `${host}/wxpay`,
 
   bindAxn: `${host}/bindAxn`,
   bindAxB: `${host}/bindAxB`,
+  jiebang: `${host}/jiebang`,
 
   tongzhi: `${host}/tongzhi`,
   xgshouji: `${host}/xgshouji`,

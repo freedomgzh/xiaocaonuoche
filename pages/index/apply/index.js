@@ -77,7 +77,7 @@ num:1,
   //buy
   toBuy:function(){
     //组建信息
-    var price = this.data.price;
+    var price = this.data.prices;
     var name = this.data.name;
     var phone  = this.data.phone;
     var address= this.data.address;
@@ -165,7 +165,9 @@ showError:function(){
         number:that.data.num
       },
       success: function (res) {
-        console.log("下单", res)
+        console.log("下单", price)
+        console.log("下单", that.data.region)
+
         wx.hideLoading()
         if(res.data.code==0){
           wxpay.wxpay(app, 0, res.data.data.id, "/pages/tabbar/order/index?order_status=2");
@@ -177,6 +179,11 @@ showError:function(){
           that.showError();
         }
       }
+    })
+  },
+  toHelp:function(){
+    wx.navigateTo({
+      url: '/pages/help/index/index',
     })
   },
   /**

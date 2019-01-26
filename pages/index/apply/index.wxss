@@ -6,6 +6,7 @@
   margin-top: 28rpx;
   padding: 0 30rpx;
   font-size: 32rpx;
+  padding-bottom: 110rpx;
 }
 .contentBox image{
   width: 38rpx;
