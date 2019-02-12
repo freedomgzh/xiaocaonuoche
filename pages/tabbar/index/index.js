@@ -114,5 +114,11 @@ Page({
       console.log("授权失败");
     }
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 
 })
